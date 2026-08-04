@@ -20,10 +20,10 @@ This portfolio belongs to **Seshanagottu Venkata Sujith Praveen**, an AI/ML Engi
 
 | Project | Domain | Key Result |
 |---|---|---|
-| [RespiRAG](https://github.com/SVSPraveen/RespiRAG) | Clinical Oncology AI | Zero-hallucination RAG for NSCLC — role-gated, LLM-as-judge verified |
-| [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) | Financial Analysis | SEC 10-K/10-Q retrieval; NDCG@5 improved from 62% → ~95% |
-| [SPrav Job AI](https://github.com/SVSPraveen/SPrav-Job-AI) | Agentic Automation | End-to-end job discovery, resume tailoring, and auto-apply via Playwright |
-| [ShipForesight](https://github.com/SVSPraveen/ShipForesight) | Logistics ML | 3-stage delay prediction (84.7% accuracy, 1.24-day MAE) with multilingual AI explanations |
+| <a href="https://github.com/SVSPraveen/RespiRAG" target="_blank" rel="noopener noreferrer">RespiRAG</a> | Clinical Oncology AI | Zero-hallucination RAG for NSCLC — role-gated, LLM-as-judge verified |
+| <a href="https://github.com/SVSPraveen/Finance-RAG-Copilot" target="_blank" rel="noopener noreferrer">Finance RAG Copilot</a> | Financial Analysis | SEC 10-K/10-Q retrieval; NDCG@5 improved from 62% → ~95% |
+| <a href="https://github.com/SVSPraveen/SPrav-Job-AI" target="_blank" rel="noopener noreferrer">SPrav Job AI</a> | Agentic Automation | End-to-end job discovery, resume tailoring, and auto-apply via Playwright |
+| <a href="https://github.com/SVSPraveen/ShipForesight" target="_blank" rel="noopener noreferrer">ShipForesight</a> | Logistics ML | 3-stage delay prediction (84.7% accuracy, 1.24-day MAE) with multilingual AI explanations |
 
 ---
 
@@ -86,14 +86,14 @@ All editable content lives in clearly named data constants near the top of [`src
 
 ## Running Locally
 
-Requires [Node.js ≥ 18](https://nodejs.org/).
+Requires <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js ≥ 18</a>.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+Open <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">http://localhost:5173</a>.
 
 ## Building for Production
 
@@ -116,7 +116,7 @@ Outputs a fully static build to `dist/` — deploy directly to GitHub Pages, Ver
 
 | | |
 |---|---|
-| **Email** | svspraveens@gmail.com |
-| **LinkedIn** | [linkedin.com/in/svs-praveen-s](https://www.linkedin.com/in/svs-praveen-s/) |
-| **GitHub** | [github.com/SVSPraveen](https://github.com/SVSPraveen) |
-| **Resume** | [Google Drive](https://drive.google.com/file/d/1gW_Uwv_GZ9TCkX_5I2UzWAbvZOlKg44c/view?usp=sharing) |
+| **Email** | <a href="mailto:svspraveens@gmail.com">svspraveens@gmail.com</a> |
+| **LinkedIn** | <a href="https://www.linkedin.com/in/svs-praveen-s/" target="_blank" rel="noopener noreferrer">linkedin.com/in/svs-praveen-s</a> |
+| **GitHub** | <a href="https://github.com/SVSPraveen" target="_blank" rel="noopener noreferrer">github.com/SVSPraveen</a> |
+| **Resume** | <a href="https://drive.google.com/file/d/1gW_Uwv_GZ9TCkX_5I2UzWAbvZOlKg44c/view?usp=sharing" target="_blank" rel="noopener noreferrer">Google Drive</a> |
