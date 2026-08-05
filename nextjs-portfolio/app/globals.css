@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* ─── Tailwind v4: custom theme tokens ─── */
+@theme {
+  --color-bg: #FAFAFC;
+  --color-bgAlt: #F3F1FA;
+  --color-cardBorder: #E9E7F5;
+  --color-textPrimary: #1E1B2E;
+  --color-textSecondary: #5B5770;
+  --color-accent: #6366F1;
+  --color-accentHover: #4F46E5;
+  --color-accentViolet: #8B5CF6;
+  --color-accentPurple: #A855F7;
+  --color-successGreen: #10B981;
+}
+
+/* ─── CSS custom properties for use in arbitrary values ─── */
+:root {
+  --bg: #FAFAFC;
+  --bg-alt: #F3F1FA;
+  --card-border: #E9E7F5;
+  --text-primary: #1E1B2E;
+  --text-secondary: #5B5770;
+  --accent: #6366F1;
+  --accent-hover: #4F46E5;
+  --accent-violet: #8B5CF6;
+  --accent-purple: #A855F7;
+  --success-green: #10B981;
+}
+
+/* ─── Body defaults ─── */
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", "Outfit", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Required gradient utilities ─── */
+.gradient-accent {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ─── Dark glassmorphism glass card (used in component UIs) ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Smooth scroll ─── */
+html {
+  scroll-behavior: smooth;
+}
