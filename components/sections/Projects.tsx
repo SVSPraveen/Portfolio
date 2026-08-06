@@ -85,12 +85,15 @@ export default function Projects() {
   );
 
   return (
-    <section id="projects" className="py-24 px-4 w-full">
+    <section id="projects" className="py-24 px-4 w-full relative overflow-hidden">
+      {/* Background Subtle Glow Accent */}
+      <div className="pointer-events-none absolute top-1/4 left-10 w-[600px] h-[350px] bg-accent/5 blur-[140px] rounded-full -z-10" />
+
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Heading */}
         <div className="flex flex-col items-center text-center mb-12">
-          <span className="text-sm font-semibold tracking-wider text-accent uppercase mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
             Featured Projects
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary text-center">
@@ -141,8 +144,8 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true, amount: 0.15 }}
-                  className={`w-full bg-white/70 backdrop-blur-md rounded-2xl border shadow-sm p-6 md:p-8 flex flex-col transition-all duration-300 ${
-                    isHighlighted ? "ring-2 ring-accent ring-offset-2 border-accent" : "border-cardBorder"
+                  className={`w-full bg-white/80 backdrop-blur-md rounded-2xl border shadow-sm p-6 md:p-8 flex flex-col hover:shadow-md hover:border-accent/40 transition-all duration-300 ${
+                    isHighlighted ? "ring-2 ring-accent ring-offset-2 border-accent" : "border-cardBorder/80"
                   } ${isDimmed ? "!opacity-40" : ""}`}
                 >
                 {/* Category & Title */}
@@ -227,10 +230,10 @@ export default function Projects() {
           className="mt-12 flex flex-col items-center"
         >
           <p className="text-textSecondary text-sm mb-4 text-center">
-            These are the ones I'm proudest of — there's more experimentation happening in my repos.
+            These are the ones I&apos;m proudest of — there&apos;s more experimentation happening in my repos.
           </p>
           <a
-            href="https://github.com/SVSPraveen"
+            href="https://github.com/SVSPraveen?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 border-2 border-accent text-accent rounded-xl px-6 py-3 font-semibold hover:bg-accent hover:text-white transition-colors duration-200"

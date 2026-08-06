@@ -33,7 +33,7 @@ export default function GithubContributions() {
           throw new Error(json.error);
         }
         setData(json);
-      } catch (err) {
+      } catch {
         setError(true);
       } finally {
         setLoading(false);
@@ -72,34 +72,78 @@ export default function GithubContributions() {
     );
   }
 
-  let maxCount = 1;
-  data.weeks.forEach(week => {
-    week.contributionDays.forEach(day => {
-      if (day.contributionCount > maxCount) {
-        maxCount = day.contributionCount;
+  // Flatten, deduplicate, and sort all dates chronologically (YYYY-MM-DD)
+  const uniqueDaysMap = new Map<string, number>();
+  data.weeks.forEach((w) => {
+    w.contributionDays.forEach((d) => {
+      if (d.date) {
+        uniqueDaysMap.set(d.date, d.contributionCount);
       }
     });
   });
 
+  const sortedDates = Array.from(uniqueDaysMap.keys()).sort((a, b) => a.localeCompare(b));
+
+  let maxCount = 1;
+  sortedDates.forEach((date) => {
+    const count = uniqueDaysMap.get(date) || 0;
+    if (count > maxCount) maxCount = count;
+  });
+
+  const sortedWeeks: Week[] = [];
+  for (let i = 0; i < sortedDates.length; i += 7) {
+    const weekDays = sortedDates.slice(i, i + 7).map((date) => ({
+      date,
+      contributionCount: uniqueDaysMap.get(date) || 0,
+    }));
+    sortedWeeks.push({ contributionDays: weekDays });
+  }
+
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm">
-      <h3 className="text-center text-lg font-semibold text-textPrimary mb-6">
-        {data.totalContributions} contributions in the last year
-      </h3>
-      <div className="overflow-x-auto pb-2 flex justify-center">
+    <div className="w-full max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm flex flex-col gap-4">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-cardBorder/60 pb-4">
+        <div>
+          <h3 className="text-lg font-bold text-textPrimary text-center sm:text-left">
+            GitHub Contribution Heatmap
+          </h3>
+          <p className="text-xs text-textSecondary text-center sm:text-left">
+            Live 365-day public commit calendar fetched directly from @SVSPraveen
+          </p>
+        </div>
+        <div className="px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold whitespace-nowrap">
+          {data.totalContributions} Contributions in Last Year
+        </div>
+      </div>
+
+      {/* Heatmap Grid */}
+      <div className="overflow-x-auto no-scrollbar py-2 flex justify-center">
         <div className="flex gap-1 min-w-max">
-          {data.weeks.map((week, weekIndex) => (
+          {sortedWeeks.map((week, weekIndex) => (
             <div key={weekIndex} className="flex flex-col gap-1">
               {week.contributionDays.map((day) => (
                 <div
                   key={day.date}
-                  className="w-3 h-3 rounded-sm"
+                  className="w-3 h-3 rounded-sm transition-transform hover:scale-125 cursor-pointer"
                   style={{ backgroundColor: getColor(day.contributionCount, maxCount) }}
                   title={`${day.contributionCount} contributions on ${day.date}`}
                 />
               ))}
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Legend & Hint Footer */}
+      <div className="flex flex-wrap items-center justify-between text-xs text-textSecondary pt-3 border-t border-cardBorder/60 gap-3">
+        <span className="font-medium">💡 Hover over any box to view exact date & commit count</span>
+        <div className="flex items-center gap-1.5">
+          <span className="text-[11px]">Less</span>
+          <div className="w-3 h-3 rounded-sm border border-cardBorder/40" style={{ backgroundColor: '#F3F1FA' }} title="No contributions" />
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: 'rgba(168, 85, 247, 0.25)' }} title="1-3 contributions" />
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: 'rgba(168, 85, 247, 0.5)' }} title="4-7 contributions" />
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: 'rgba(168, 85, 247, 0.75)' }} title="8-12 contributions" />
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#A855F7' }} title="13+ contributions" />
+          <span className="text-[11px]">More</span>
         </div>
       </div>
     </div>

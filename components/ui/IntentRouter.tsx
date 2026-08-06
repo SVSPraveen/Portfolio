@@ -9,9 +9,10 @@ import { type Intent, intents, getSuggestions } from '@/lib/intents';
 
 const PLACEHOLDER_WORDS = [
   'Show me your RAG projects...',
-  "What's your experience?",
-  'Are you good at backend?',
-  'What tech do you use?',
+  'What Python frameworks do you use?',
+  "What's your work experience?",
+  'How can I contact or hire you?',
+  'What vector databases do you use?',
 ];
 
 const ROUTING_LINE_1 = '> Analyzing intent...';
@@ -196,7 +197,9 @@ export default function IntentRouter() {
           onKeyDown={handleKeyDown}
           placeholder={placeholderText}
           aria-label="Ask about Praveen's work"
+          role="combobox"
           aria-expanded={showDropdown}
+          aria-controls="intent-listbox"
           aria-haspopup="listbox"
           autoComplete="off"
           spellCheck={false}
@@ -205,7 +208,7 @@ export default function IntentRouter() {
 
         {/* Helper text */}
         <p className="mt-2 text-xs text-[#5B5770]">
-          Try asking, or press Enter to explore.
+          Type any query or keyword to route directly to Praveen&apos;s portfolio data.
         </p>
 
         {/* ── Suggestions dropdown ── */}
@@ -278,7 +281,7 @@ export default function IntentRouter() {
               className="mt-3"
             >
               <p className="text-xs text-[#5B5770] mb-2">
-                Hmm, I didn&apos;t catch that — try one of these:
+                Deterministic Intent Router: No exact keyword match — select a section below:
               </p>
               <div className="flex flex-wrap gap-2">
                 {intents.map((intent) => (

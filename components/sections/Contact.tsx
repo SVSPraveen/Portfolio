@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Download, Sparkles, Send } from 'lucide-react';
+import { Mail, Download, Sparkles, Send, CheckCircle2 } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export default function Contact() {
@@ -11,31 +11,72 @@ export default function Contact() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (field: 'name' | 'email' | 'message', value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (submitStatus === 'error') {
+      setSubmitStatus('idle');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to a real backend (e.g. Formspree or a Next.js API route) later.
+    setSubmitStatus('submitting');
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          // TODO: replace with real Web3Forms access key from web3forms.com
+          access_key: 'WEB3FORMS_ACCESS_KEY_PLACEHOLDER',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: 'New message from portfolio contact form',
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 4000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+    }
   };
 
   return (
-    <section id="contact" className="py-24 px-4 w-full">
+    <section id="contact" className="py-24 px-4 w-full relative overflow-hidden">
+      {/* Background Subtle Glow Accent */}
+      <div className="pointer-events-none absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-accent/5 blur-[140px] rounded-full -z-10" />
+
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center mb-12">
-        <span className="text-sm font-semibold tracking-wider text-accent uppercase mb-4">
-          Contact
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
+          Contact Me
         </span>
         <h2 className="text-4xl md:text-5xl font-bold text-textPrimary mb-6">
-          Let's build intelligent systems that recruiters remember.
+          Let&apos;s build intelligent systems that recruiters remember.
         </h2>
         <p className="text-lg text-textSecondary max-w-3xl">
           Open to AI/ML engineering roles, Python backend opportunities, GenAI internships, RAG systems work, and applied machine learning collaborations.
         </p>
 
-        {/* TODO: replace PLACEHOLDER_LINKEDIN_URL with real values */}
         <div className="flex flex-wrap justify-center gap-4 mt-10">
           <a
-            href="PLACEHOLDER_LINKEDIN_URL"
+            href="https://www.linkedin.com/in/svs-praveen-s"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
           >
             <FaLinkedin className="w-5 h-5" color="currentColor" />
             LinkedIn
@@ -44,14 +85,14 @@ export default function Contact() {
             href="https://github.com/SVSPraveen"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
           >
             <FaGithub className="w-5 h-5" color="currentColor" />
             GitHub
           </a>
           <a
             href="mailto:svspraveens@gmail.com"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
           >
             <Mail className="w-5 h-5" />
             Email
@@ -60,7 +101,7 @@ export default function Contact() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
           >
             <Download className="w-5 h-5" />
             Resume
@@ -68,13 +109,13 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto w-full bg-white/70 backdrop-blur-md rounded-2xl border border-cardBorder shadow-sm p-6 md:p-8">
+      <div className="max-w-2xl mx-auto w-full bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 p-6 md:p-8">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="w-5 h-5 text-accent" />
           <h3 className="text-xl font-bold text-textPrimary">Quick Chat / Discussion on AI Applications</h3>
         </div>
         <p className="text-textSecondary mb-6">
-          Fill out the form below and I'll get back to you shortly.
+          Fill out the form below and I&apos;ll get back to you shortly.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -84,7 +125,7 @@ export default function Contact() {
               id="name"
               type="text"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) => handleInputChange('name', e.target.value)}
               required
               className="w-full px-4 py-3 rounded-xl border border-cardBorder bg-white focus:outline-none focus:ring-2 focus:ring-accent text-textPrimary placeholder:text-textSecondary/50"
               placeholder="Your name"
@@ -97,7 +138,7 @@ export default function Contact() {
               id="email"
               type="email"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) => handleInputChange('email', e.target.value)}
               required
               className="w-full px-4 py-3 rounded-xl border border-cardBorder bg-white focus:outline-none focus:ring-2 focus:ring-accent text-textPrimary placeholder:text-textSecondary/50"
               placeholder="your@email.com"
@@ -109,7 +150,7 @@ export default function Contact() {
             <textarea
               id="message"
               value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              onChange={(e) => handleInputChange('message', e.target.value)}
               required
               rows={4}
               className="w-full px-4 py-3 rounded-xl border border-cardBorder bg-white focus:outline-none focus:ring-2 focus:ring-accent text-textPrimary placeholder:text-textSecondary/50 resize-y"
@@ -117,13 +158,30 @@ export default function Contact() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="mt-2 flex items-center justify-center gap-2 w-full md:w-auto md:self-end px-8 py-3 rounded-xl gradient-accent text-white font-medium hover:opacity-90 transition-opacity"
-          >
-            <Send className="w-5 h-5" />
-            Send Message
-          </button>
+          {submitStatus === 'success' ? (
+            <div className="mt-2 flex items-center justify-center gap-2 w-full md:w-auto md:self-end px-6 py-3 rounded-xl bg-successGreen/10 text-successGreen font-medium border border-successGreen/20">
+              <CheckCircle2 className="w-5 h-5" />
+              Message sent! I&apos;ll get back to you soon.
+            </div>
+          ) : (
+            <div className="mt-2 flex flex-col gap-3 w-full md:w-auto md:self-end">
+              {submitStatus === 'error' && (
+                <div className="text-red-600 text-sm font-medium text-center md:text-right">
+                  Something went wrong — please try again, or email me directly at svspraveens@gmail.com.
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={submitStatus === 'submitting'}
+                className={`flex items-center justify-center gap-2 w-full px-8 py-3 rounded-xl gradient-accent text-white font-medium transition-opacity ${
+                  submitStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'
+                }`}
+              >
+                <Send className={`w-5 h-5 ${submitStatus === 'submitting' ? 'opacity-70' : ''}`} />
+                {submitStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </section>

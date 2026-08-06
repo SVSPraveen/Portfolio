@@ -23,43 +23,72 @@ export const intents: Intent[] = [
     id: "about",
     label: "About Me",
     sectionId: "about",
-    keywords: ["about", "who are you", "background", "bio", "tell me about yourself", "introduction"],
+    keywords: [
+      "about", "who are you", "background", "bio", "tell me about yourself", 
+      "introduction", "education", "college", "university", "degree", 
+      "location", "where are you based", "mumbai", "india", "summary", 
+      "who is praveen", "profile", "overview"
+    ],
   },
   {
     id: "skills",
     label: "Technical Skills",
     sectionId: "skills",
-    keywords: ["skills", "tech stack", "tools", "technologies", "langchain", "python", "what do you know", "stack"],
+    keywords: [
+      "skills", "tech stack", "tools", "technologies", "langchain", "langgraph", 
+      "python", "fastapi", "pytorch", "tensorflow", "vector db", "chromadb", 
+      "pinecone", "qdrant", "faiss", "rag", "llm", "agent", "multi-agent", 
+      "docker", "sql", "postgresql", "git", "what do you know", "stack", 
+      "competencies", "coding", "languages", "frameworks"
+    ],
   },
   {
     id: "experience",
     label: "Work Experience",
     sectionId: "experience",
-    keywords: ["experience", "internship", "work history", "job", "mobcoder", "career"],
+    keywords: [
+      "experience", "internship", "work history", "job", "mobcoder", "career", 
+      "work", "company", "roles", "previous work", "ai engineer", "software engineer", 
+      "employment", "positions"
+    ],
   },
   {
     id: "projects",
     label: "Featured Projects",
     sectionId: "projects",
-    keywords: ["projects", "show me your projects", "rag", "what have you built", "github", "portfolio work", "built"],
+    keywords: [
+      "projects", "show me your projects", "rag projects", "what have you built", 
+      "github", "portfolio work", "built", "repos", "code", "demos", "apps", 
+      "applications", "financial agent", "clinical rag", "systems", "work samples"
+    ],
   },
   {
     id: "client-work",
     label: "Client Work",
     sectionId: "client-work",
-    keywords: ["client work", "freelance", "ngo", "paid project", "real client", "client"],
+    keywords: [
+      "client work", "freelance", "ngo", "paid project", "real client", "client", 
+      "contract", "services", "consulting", "client projects"
+    ],
   },
   {
     id: "certifications",
     label: "Certifications",
     sectionId: "certifications",
-    keywords: ["certifications", "certs", "courses", "oracle", "aws certified", "credentials"],
+    keywords: [
+      "certifications", "certs", "courses", "oracle", "aws certified", 
+      "credentials", "certificates", "licenses", "achievements", "education certificates"
+    ],
   },
   {
     id: "contact",
-    label: "Contact",
+    label: "Contact & Resume",
     sectionId: "contact",
-    keywords: ["contact", "hire me", "email", "reach out", "connect", "linkedin", "get in touch", "hire"],
+    keywords: [
+      "contact", "hire me", "email", "reach out", "connect", "linkedin", 
+      "get in touch", "hire", "resume", "cv", "download resume", "pdf", 
+      "available", "opportunity", "salary", "interview", "message", "phone"
+    ],
   },
 ];
 

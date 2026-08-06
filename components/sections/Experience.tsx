@@ -14,12 +14,15 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-24 px-4 w-full">
+    <section id="experience" className="py-24 px-4 w-full relative overflow-hidden">
+      {/* Background Subtle Glow Accent */}
+      <div className="pointer-events-none absolute top-1/3 right-10 w-[500px] h-[300px] bg-indigo-500/5 blur-[120px] rounded-full -z-10" />
+
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
-          <span className="text-sm font-semibold tracking-wider text-accent uppercase mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
             Experience
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary text-center max-w-2xl">
@@ -48,7 +51,7 @@ export default function Experience() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="flex-1 bg-white/70 backdrop-blur-md rounded-2xl border border-cardBorder shadow-sm p-6 md:p-8 flex flex-col"
+              className="flex-1 bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 p-6 md:p-8 flex flex-col"
             >
               <span className="text-sm text-textSecondary mb-2">Apr 2026 – Jul 2026</span>
               <h3 className="text-xl font-bold text-textPrimary">AI/ML Engineer Intern</h3>

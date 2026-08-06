@@ -23,12 +23,15 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 px-4 w-full">
+    <section id="about" className="py-24 px-4 w-full relative overflow-hidden">
+      {/* Background Subtle Glow Accent */}
+      <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent/5 blur-[120px] rounded-full -z-10" />
+
       <div className="max-w-7xl mx-auto">
         
         {/* Section Heading */}
         <div className="flex flex-col mb-12">
-          <span className="text-sm font-semibold tracking-wider text-accent uppercase mb-4">
+          <span className="inline-flex items-center gap-2 w-fit px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
             About Me
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">
@@ -36,28 +39,28 @@ export default function About() {
           </h2>
         </div>
 
-        {/* Two-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        {/* Two-column layout with equal height cards */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Column (Main Narrative) */}
           <motion.div
-            className="md:col-span-7 lg:col-span-8 bg-white/70 backdrop-blur-md rounded-2xl border border-cardBorder shadow-sm p-6 md:p-8 flex flex-col gap-6"
+            className="md:col-span-7 lg:col-span-8 h-full bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 p-6 md:p-8 flex flex-col justify-center gap-6"
             variants={leftVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             <p className="text-textSecondary leading-relaxed text-base md:text-lg">
-              I keep building the same pattern at different scales — a router that reads intent and dispatches to the right specialist instead of forcing one model to do everything. You'll see it in a multi-agent system that routes financial queries to specialized analysis agents, and in the very intent router at the top of this page. It's not a coincidence; it's how I think about hard problems — break them into the smallest correct piece, then route to it deliberately.
+              I keep building the same pattern at different scales — a router that reads intent and dispatches to the right specialist instead of forcing one model to do everything. You&apos;ll see it in a multi-agent system that routes financial queries to specialized analysis agents, and in the very intent router at the top of this page. It&apos;s not a coincidence; it&apos;s how I think about hard problems — break them into the smallest correct piece, then route to it deliberately.
             </p>
             <p className="text-textSecondary leading-relaxed text-base md:text-lg">
               I care as much about what happens when things go wrong as when they go right. Every system I ship fails closed, not open — from role-based access and jailbreak-resistant guardrails in a clinical RAG system, to a hallucination-detection layer that scores every AI-generated answer before it reaches a user. My focus is architecting cross-domain AI applications and scalable backend systems that hold up under real conditions, not just demo conditions.
             </p>
           </motion.div>
 
-          {/* Right Column (Sidebar) */}
+          {/* Right Column (Sidebar Quick Info) */}
           <motion.div
-            className="md:col-span-5 lg:col-span-4 bg-white/70 backdrop-blur-md rounded-2xl border border-cardBorder shadow-sm flex flex-col"
+            className="md:col-span-5 lg:col-span-4 h-full bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             variants={rightVariants}
             initial="hidden"
             whileInView="visible"
@@ -65,52 +68,52 @@ export default function About() {
           >
             
             {/* Fact 1 */}
-            <div className="flex gap-4 p-6 border-b border-cardBorder">
-              <div className="mt-1">
-                <GraduationCap className="w-5 h-5 text-accent" />
+            <div className="flex-1 flex items-center gap-4 p-5 md:p-6 border-b border-cardBorder/70">
+              <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent shrink-0">
+                <GraduationCap className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-textSecondary mb-1">Education</span>
-                <span className="text-sm font-medium text-textPrimary leading-snug">
-                  B.Tech, Computer Science & Engineering — Amity University, Noida (2022–2026), CGPA 7.4
+                <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Education</span>
+                <span className="text-xs md:text-sm font-bold text-textPrimary leading-snug">
+                  B.Tech, CSE — Amity University, Noida (2022–2026), CGPA 7.4
                 </span>
               </div>
             </div>
 
             {/* Fact 2 */}
-            <div className="flex gap-4 p-6 border-b border-cardBorder">
-              <div className="mt-1">
-                <MapPin className="w-5 h-5 text-accent" />
+            <div className="flex-1 flex items-center gap-4 p-5 md:p-6 border-b border-cardBorder/70">
+              <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent shrink-0">
+                <MapPin className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-textSecondary mb-1">Location</span>
-                <span className="text-sm font-medium text-textPrimary">
+                <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Location</span>
+                <span className="text-xs md:text-sm font-bold text-textPrimary">
                   Mumbai, India
                 </span>
               </div>
             </div>
 
             {/* Fact 3 */}
-            <div className="flex gap-4 p-6 border-b border-cardBorder">
-              <div className="mt-1">
-                <Briefcase className="w-5 h-5 text-accent" />
+            <div className="flex-1 flex items-center gap-4 p-5 md:p-6 border-b border-cardBorder/70">
+              <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent shrink-0">
+                <Briefcase className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-textSecondary mb-1">Status</span>
-                <span className="text-sm font-medium text-textPrimary leading-snug">
-                  Open to opportunities / Actively looking
+                <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Status</span>
+                <span className="text-xs md:text-sm font-bold text-textPrimary leading-snug">
+                  Open to Opportunities / Actively Looking
                 </span>
               </div>
             </div>
 
             {/* Fact 4 */}
-            <div className="flex gap-4 p-6">
-              <div className="mt-1">
-                <Sparkles className="w-5 h-5 text-accent" />
+            <div className="flex-1 flex items-center gap-4 p-5 md:p-6">
+              <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent shrink-0">
+                <Sparkles className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-textSecondary mb-1">Focus</span>
-                <span className="text-sm font-medium text-textPrimary leading-snug">
+                <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Focus</span>
+                <span className="text-xs md:text-sm font-bold text-textPrimary leading-snug">
                   Agentic AI, RAG Systems, Scalable Backends
                 </span>
               </div>

@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Image from 'next/image';
+
 const navItems = [
   { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
@@ -52,12 +54,18 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     setIsOpen(false);
   };
 
+  // Previous relative nav line:
+  // <nav className="relative w-full bg-bg border-b border-cardBorder z-50">
   return (
-    <nav className="relative w-full bg-bg border-b border-cardBorder z-50">
+    <nav className="sticky top-0 w-full bg-bg/90 backdrop-blur-md border-b border-cardBorder z-50">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-4 md:py-5 flex items-center justify-between">
         
         {/* Logo */}

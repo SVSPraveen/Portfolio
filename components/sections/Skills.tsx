@@ -58,12 +58,15 @@ export default function Skills() {
   });
 
   return (
-    <section id="skills" className="py-24 px-4 w-full">
+    <section id="skills" className="py-24 px-4 w-full relative overflow-hidden">
+      {/* Background Subtle Glow Accent */}
+      <div className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-purple-500/5 blur-[120px] rounded-full -z-10" />
+
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
-          <span className="text-sm font-semibold tracking-wider text-accent uppercase mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
             Skills
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">
@@ -86,7 +89,7 @@ export default function Skills() {
                   setHighlightedProjectIds(skillProjectMap[category.id]);
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="bg-white/70 backdrop-blur-md rounded-2xl border border-cardBorder shadow-sm p-6 hover:-translate-y-0.5 hover:shadow-md hover:border-accent cursor-pointer transition-all duration-200 flex flex-col"
+                className="bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm p-6 hover:-translate-y-1 hover:shadow-md hover:border-accent/40 cursor-pointer transition-all duration-300 flex flex-col"
               >
                 {/* Icon Badge */}
                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4">
