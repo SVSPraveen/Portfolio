@@ -27,12 +27,12 @@ I break complex, messy data problems into specialized, deterministic components.
 
 | Domain | Technologies & Frameworks |
 |---|---|
-| **AI / GenAI / Agents** | LangChain, LangGraph, Model Context Protocol (MCP), Llama 3.3 70B, MedCPT, HyDE, LoRA Fine-tuning, Ollama, Groq |
-| **Vector DBs & Search** | Qdrant Cloud, ChromaDB, BM25 Sparse Search, Cross-Encoder Reranking, Reciprocal Rank Fusion (RRF), FAISS |
-| **Backend & Databases** | Python 3.11+, FastAPI, Node.js, Express, PostgreSQL, Redis (Caching & Session RBAC), DuckDB, SQLite |
-| **ML & Analytics** | PyTorch, CatBoost, LightGBM, XGBoost, MLflow, RapidFuzz |
-| **Cloud & DevOps** | Docker, AWS Bedrock, Oracle Cloud (OCI), GitHub Actions, Vercel, REST APIs |
-| **Frontend & Web** | React 18, Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, Playwright |
+| **AI / GenAI / Agents** | LangGraph, LangChain, Agentic RAG, Multi-Agent Systems (MoE routing), Model Context Protocol (MCP), Tool-Calling, LlamaIndex, Self-RAG, CRAG, LoRA Fine-tuning |
+| **Retrieval & Vector Search** | Qdrant Cloud, pgvector, Pinecone, MedCPT, Hybrid Search (BM25 + Dense), Cross-Encoder Re-ranking, Reciprocal Rank Fusion (RRF), Semantic Caching, Sentence-Transformers |
+| **LLMs & Infrastructure** | Groq, Ollama, vLLM, DeepSeek-R1/R2, Llama 3.3 70B, Qwen 2.5/3, OpenAI API, AWS Bedrock |
+| **ML & Deterministic Eval** | Scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, MLflow, RAGAS, RapidFuzz, NDCG@5, Hallucination & Drift Detection, pytest |
+| **Backend & Automation** | Python 3.11+, FastAPI, REST APIs, React 18, TypeScript, Playwright, PostgreSQL (Neon), MongoDB, SQLite, DuckDB, Redis (Caching & Session RBAC), SQLAlchemy, Pydantic, PyWebView |
+| **Cloud & Security** | AWS, Oracle OCI, GCP, Cloudflare Pages, Docker, Kubernetes, OAuth2, JWT, AES-GCM, HIPAA & GDPR compliance, Linux, Git |
 
 ---
 
