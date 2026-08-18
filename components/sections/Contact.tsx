@@ -32,12 +32,12 @@ export default function Contact() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          // TODO: replace with real Web3Forms access key from web3forms.com
-          access_key: 'WEB3FORMS_ACCESS_KEY_PLACEHOLDER',
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '8860f8d8-eca1-4b55-98a0-d48df5124186',
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: 'New message from portfolio contact form',
+          subject: 'New message from portfolio contact form — ' + formData.name,
+          from_name: 'Portfolio Contact Form',
         }),
       });
       
