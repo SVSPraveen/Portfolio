@@ -2,14 +2,49 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers, CheckCircle2, Rocket, ArrowUpRight } from 'lucide-react';
+import { Layers, CheckCircle2, Rocket, ArrowUpRight, Download } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { SiGoogledrive } from 'react-icons/si';
 
 const projectsData = [
   {
+    id: "sprav-job-ai",
+    category: "AGENTIC CAREER AI",
+    tags: ["AI", "Backend", "RAG"],
+    title: "SPrav Job AI (Pro v2.4)",
+    description: "An autonomous, local-first AI career engine that scans 28,700+ tech company ATS portals (Greenhouse, Lever, Ashby, Workday, SmartRecruiters) and Wellfound, calculates cosine similarity against master PDF resumes, and prepares STAR-tailored applications for 1-click dispatch.",
+    bullets: [
+      "Scans and monitors 28,700+ real tech ATS company career portals and job feeds with <18ms SQLite query latency and <120MB memory footprint.",
+      "Engineers dual-stage matching: dense Sentence-Transformers embedding cosine similarity + multi-criteria LLM rubrics to score genuine role fit.",
+      "Generates tailored STAR cover letters and outreach pitches with a 1-click human review dispatch queue, supporting local Ollama models and cloud inference (Gemini / Groq).",
+      "Shipped as a 100% private, air-gapped standalone Windows portable application (v2.4 Pro) with zero-trust local XOR credential encryption."
+    ],
+    tech: ["Python", "FastAPI", "React", "SQLite", "Sentence-Transformers", "Playwright", "Ollama", "Groq"],
+    github: "https://github.com/SVSPraveen/SPrav-Job-AI",
+    demoStatus: "https://sprav-job-ai.pages.dev/",
+    downloadUrl: "https://github.com/SVSPraveen/SPrav-Job-AI/releases",
+    driveUrl: "https://drive.google.com/drive/folders/1JOm-Rth1HoB5xZqDva61JG9-aonj4jae?usp=sharing"
+  },
+  {
+    id: "governed-ragflow",
+    category: "AGENTIC ORCHESTRATION & GOVERNANCE",
+    tags: ["RAG", "AI", "Backend"],
+    title: "Governed-RAGFlow",
+    description: "A production-grade AI visual orchestration engine combining a drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time prompt-injection & PII guardrails, semantic multi-agent routing, and self-healing retry loops.",
+    bullets: [
+      "Built a full-featured visual drag-and-drop pipeline builder in React 18 with live step-by-step execution telemetry, topological graph sorting, and interactive pre-built onboarding templates.",
+      "Engineered real-time fail-closed governance guardrails (PII masking, toxicity filtering, and regex/LLM prompt-injection defenses) that short-circuit malicious inputs before LLM execution.",
+      "Implemented an adaptive self-healing retrieval architecture with semantic fallback routing that dynamically switches knowledge branches upon detecting low-confidence or irrelevant documents.",
+      "Integrated PostgreSQL (Neon) persistence for comprehensive audit trails, token telemetry, latency logging, and deterministic faithfulness evaluations."
+    ],
+    tech: ["Python", "FastAPI", "React 18", "PostgreSQL", "Neon", "Groq LPU", "LangChain", "Docker"],
+    github: "https://github.com/SVSPraveen/Governed-RAGFlow",
+    demoStatus: "pending"
+  },
+  {
     id: "respirag",
     category: "CLINICAL AI",
-    tags: ["RAG", "AI"],
+    tags: ["RAG", "AI", "Backend"],
     title: "RespiRAG",
     description: "A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer (NSCLC), built for real oncologists, pharmacists, and clinical nurses.",
     bullets: [
@@ -36,22 +71,6 @@ const projectsData = [
     ],
     tech: ["Python", "Streamlit", "Qdrant Cloud", "BM25", "Llama 3.3", "PostgreSQL", "RapidFuzz"],
     github: "https://github.com/SVSPraveen/Finance-RAG-Copilot",
-    demoStatus: "pending"
-  },
-  {
-    id: "sprav-job-ai",
-    category: "AGENTIC AI",
-    tags: ["AI", "Backend"],
-    title: "SPrav Job AI",
-    description: "A local-first AI orchestration system (SPrav MOE) that discovers jobs, tailors ATS-optimized resumes, and executes applications end to end.",
-    bullets: [
-      "Built credential-free scrapers covering Indeed, Hacker News, Y Combinator, and Wellfound, feeding a daemon-driven discovery pipeline.",
-      "Designed a Mixture-of-Experts-style routing model that scores job fit, then tailors a resume and cold email only for genuinely matching roles.",
-      "Implemented a zero-trust local auth system with XOR-encrypted credential storage and a self-hosted Master Recovery Key, avoiding any external auth server.",
-      "Automated application submission via Playwright for ATS platforms, with a Human Review queue and a 1-click send flow for startup outreach."
-    ],
-    tech: ["Python", "FastAPI", "React", "SQLite", "Playwright", "Ollama", "Groq"],
-    github: "https://github.com/SVSPraveen/SPrav-Job-AI",
     demoStatus: "pending"
   },
   {
@@ -97,7 +116,7 @@ export default function Projects() {
             Featured Projects
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary text-center">
-            RAG, retrieval, backend, and applied AI work.
+            Agentic AI, governed RAG, and production systems.
           </h2>
         </div>
 
@@ -185,23 +204,23 @@ export default function Projects() {
                 </div>
 
                 {/* Buttons Row */}
-                <div className="flex flex-wrap gap-4 mt-auto">
+                <div className="flex flex-wrap items-center gap-3 mt-auto pt-2">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder bg-white/60 text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium text-sm shadow-sm"
                   >
-                    <FaGithub className="w-5 h-5" />
+                    <FaGithub className="w-4 h-4" />
                     GitHub
                   </a>
 
                   {project.demoStatus === "pending" ? (
                     <button
                       disabled
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary opacity-50 cursor-not-allowed font-medium"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder text-textSecondary opacity-50 cursor-not-allowed font-medium text-sm"
                     >
-                      <Rocket className="w-5 h-5" />
+                      <Rocket className="w-4 h-4" />
                       Demo Coming Soon
                     </button>
                   ) : (
@@ -209,10 +228,35 @@ export default function Projects() {
                       href={project.demoStatus}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl gradient-accent text-white hover:opacity-90 transition-opacity font-medium text-sm shadow-sm"
                     >
-                      <Rocket className="w-5 h-5" />
+                      <Rocket className="w-4 h-4" />
                       Live Demo
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                  )}
+
+                  {'downloadUrl' in project && project.downloadUrl && (
+                    <a
+                      href={project.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-accent/40 bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all font-medium text-sm shadow-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      Release Download
+                    </a>
+                  )}
+
+                  {'driveUrl' in project && project.driveUrl && (
+                    <a
+                      href={project.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-medium text-sm shadow-sm"
+                    >
+                      <SiGoogledrive className="w-4 h-4" />
+                      Google Drive (385MB)
                     </a>
                   )}
                 </div>
@@ -248,3 +292,4 @@ export default function Projects() {
     </section>
   );
 }
+

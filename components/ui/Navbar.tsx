@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-import Image from 'next/image';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const navItems = [
   { label: 'About', id: 'about' },
@@ -62,8 +61,6 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  // Previous relative nav line:
-  // <nav className="relative w-full bg-bg border-b border-cardBorder z-50">
   return (
     <nav className="sticky top-0 w-full bg-bg/90 backdrop-blur-md border-b border-cardBorder z-50">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-4 md:py-5 flex items-center justify-between">
@@ -77,9 +74,9 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-7">
           
-          <div className="relative flex items-center gap-6">
+          <div className="relative flex items-center gap-5 lg:gap-6">
             {navItems.map((item) => {
               const isActive = activeSectionId === item.id;
               return (
@@ -115,19 +112,61 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* Social Icon Buttons (GitHub & LinkedIn) */}
+          <div className="flex items-center gap-2 pl-2 border-l border-cardBorder/80">
+            <a
+              href="https://github.com/SVSPraveen"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              title="GitHub Profile"
+              className="w-9 h-9 flex items-center justify-center rounded-xl bg-bgAlt border border-cardBorder text-textSecondary hover:text-accent hover:border-accent/40 hover:bg-white transition-all duration-150 shadow-sm"
+            >
+              <FaGithub className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/svs-praveen-s"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn Profile"
+              className="w-9 h-9 flex items-center justify-center rounded-xl bg-bgAlt border border-cardBorder text-textSecondary hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-white transition-all duration-150 shadow-sm"
+            >
+              <FaLinkedin className="w-4 h-4" />
+            </a>
+          </div>
+
           <button
             onClick={() => scrollTo('contact')}
-            className="bg-accent text-white rounded-full px-4 py-2 text-sm font-medium hover:bg-accentHover transition-colors duration-150"
+            className="bg-accent text-white rounded-full px-4 py-2 text-sm font-medium hover:bg-accentHover transition-colors duration-150 shadow-sm"
           >
             Contact
           </button>
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center gap-2">
+          <a
+            href="https://github.com/SVSPraveen"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className="w-8 h-8 flex items-center justify-center rounded-lg bg-bgAlt border border-cardBorder text-textSecondary hover:text-accent"
+          >
+            <FaGithub className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/svs-praveen-s"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className="w-8 h-8 flex items-center justify-center rounded-lg bg-bgAlt border border-cardBorder text-textSecondary hover:text-[#0A66C2]"
+          >
+            <FaLinkedin className="w-3.5 h-3.5" />
+          </a>
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="text-textSecondary hover:text-accent focus:outline-none"
+            className="text-textSecondary hover:text-accent focus:outline-none ml-1 p-1"
             aria-label="Toggle mobile menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -145,16 +184,38 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 w-full bg-bg border-b border-cardBorder shadow-lg overflow-hidden md:hidden"
           >
-            <div className="flex flex-col px-4 py-2">
+            <div className="flex flex-col px-4 py-3">
               {[...navItems, { label: 'Contact', id: 'contact' }].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="w-full text-left py-4 border-b border-cardBorder/50 last:border-none text-textSecondary hover:text-accent font-medium transition-colors"
+                  className="w-full text-left py-3 border-b border-cardBorder/50 last:border-none text-textSecondary hover:text-accent font-medium transition-colors"
                 >
                   {item.label}
                 </button>
               ))}
+
+              {/* Mobile Social Buttons in Drawer */}
+              <div className="flex items-center gap-3 pt-3 pb-1 border-t border-cardBorder/60 mt-2">
+                <a
+                  href="https://github.com/SVSPraveen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-bgAlt border border-cardBorder text-textSecondary hover:text-accent font-medium text-sm transition-all"
+                >
+                  <FaGithub className="w-4 h-4" />
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/svs-praveen-s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-bgAlt border border-cardBorder text-textSecondary hover:text-[#0A66C2] font-medium text-sm transition-all"
+                >
+                  <FaLinkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
@@ -162,3 +223,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

@@ -44,35 +44,44 @@ I break complex, messy data problems into specialized, deterministic components.
 - **SEC Filing Search Optimization:** Improved retrieval accuracy from **62% to ~95% (NDCG@5)** across SEC 10-K/10-Q filings by architecting a hybrid BM25 + dense-vector search pipeline with Cross-Encoder re-ranking on Qdrant Cloud.
 - **Multi-Agent Orchestration:** Reduced multi-agent query response times to **< 5 seconds** across 100+ SEC filings by designing a parallel routing system in LangGraph using Llama 3.3 70B and the Model Context Protocol (MCP).
 - **Deterministic LLM Evaluation:** Lowered evaluation costs significantly while maintaining high faithfulness scores by developing a deterministic RapidFuzz + PyTorch scoring pipeline tracked in MLflow.
-- **Fine-Tuning & Caching:** Fine-tuned Llama 3.1 8B with LoRA and integrated Redis semantic caching into an AWS Bedrock GraphRAG pipeline, eliminating repeat-query latency and terminology errors.
 
 ---
 
 ## 🔬 Featured Projects
 
-### 1. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System*
+### 1. 🤖 [SPrav Job AI](https://github.com/SVSPraveen/SPrav-Job-AI) — *Autonomous Career Intelligence & 1-Click Dispatch (Pro v2.4)*
+[![Live Showcase](https://img.shields.io/badge/🌐_Live_Demo-sprav--job--ai.pages.dev-6366f1?style=flat-square)](https://sprav-job-ai.pages.dev/) [![GitHub Releases](https://img.shields.io/badge/📦_GitHub_Releases-Download-8b5cf6?style=flat-square)](https://github.com/SVSPraveen/SPrav-Job-AI/releases) [![Google Drive](https://img.shields.io/badge/📥_Google_Drive-385MB_Portable_ZIP-10b981?style=flat-square)](https://drive.google.com/drive/folders/1JOm-Rth1HoB5xZqDva61JG9-aonj4jae?usp=sharing)
+- **Scanning & Ingestion:** Autonomous scanner monitoring 28,700+ verified tech ATS career boards (Greenhouse, Lever, Ashby, Workday, SmartRecruiters) and Wellfound with <18ms SQLite latency and <120MB RAM footprint.
+- **ATS Matching & Scoring:** Dual-stage cosine similarity matching via Sentence-Transformers embeddings combined with multi-criteria LLM evaluation rubrics against master PDF resumes.
+- **Dispatch & Privacy:** Tailored STAR cover letter/pitch generation with 1-click human review dispatch queues, local Ollama / free cloud LLM support, and air-gapped zero-trust local XOR credential encryption.
+- **Tech:** `Python`, `FastAPI`, `React`, `SQLite`, `Sentence-Transformers`, `Playwright`, `Ollama`, `Groq`
+
+### 2. 🛡️ [Governed-RAGFlow](https://github.com/SVSPraveen/Governed-RAGFlow) — *Visual AI Orchestration & Governance Engine*
+A production-ready orchestration platform combining a visual drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time guardrails and self-healing retries.
+- **Visual Canvas:** Drag-and-drop execution graph builder in React 18 with step-by-step live status streaming, topological execution sorting, and 10-second preset onboarding pipelines.
+- **Real-Time Governance:** Multi-layered fail-closed guardrails (PII masking, toxicity filtering, and prompt injection defenses) short-circuiting malicious inputs before model invocation.
+- **Self-Healing Retrieval:** Dynamic semantic fallback routing that automatically switches knowledge branches when low-relevance documents are detected.
+- **Audit & Persistence:** PostgreSQL (Neon) persistence for full governance audit logs, token telemetry, latency tracking, and deterministic faithfulness evaluation.
+- **Tech:** `Python`, `FastAPI`, `React 18`, `PostgreSQL`, `Neon`, `Groq LPU`, `LangChain`, `Docker`
+
+### 3. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System*
 A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer (NSCLC) designed for oncologists and pharmacists.
 - **Pipeline:** Governed RAG over 600+ FDA drug labels and 3,900+ pages of NCCN guidelines using HyDE query expansion, MedCPT embeddings, and Cross-Encoder reranking.
 - **Security:** Role-based access (Patient/HCP/Admin) with JWT RBAC, Redis session blacklisting, and regex prompt-injection guardrails.
 - **Tech:** `Python`, `FastAPI`, `React`, `Qdrant`, `MedCPT`, `PostgreSQL`, `Redis`, `Docker`
 
-### 2. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer*
+### 4. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer*
 An enterprise multi-agent RAG engine for SEC 10-K/10-Q filing analysis.
 - **Orchestration:** Multi-agent router (Financial Analyst, Comparison, Decomposition, Risk, Trend agents) executing parallel retrieval via Qdrant Cloud.
 - **Self-Eval & Guardrails:** Zero-cost deterministic evaluation layer scoring Faithfulness and Groundedness with a 5-state visual guardrail system.
 - **Tech:** `Python`, `Streamlit`, `Qdrant Cloud`, `BM25`, `Llama 3.3 70B`, `PostgreSQL`, `RapidFuzz`
 
-### 3. 🤖 [SPrav Job AI](https://github.com/SVSPraveen/SPrav-Job-AI) — *Agentic Discovery & Execution Engine*
-A local-first AI orchestration system (SPrav MOE) that automates job discovery and ATS resume tailoring.
-- **Automation:** Credential-free scrapers (Indeed, HN, Wellfound) + Playwright automated application submission with Human Review queues.
-- **Privacy:** Local XOR credential encryption and self-hosted Master Recovery Key.
-- **Tech:** `Python`, `FastAPI`, `React`, `SQLite`, `Playwright`, `Ollama`, `Groq`
-
-### 4. 🚢 [ShipForesight](https://github.com/SVSPraveen/ShipForesight) — *Logistics ML Predictive Engine*
+### 5. 🚢 [ShipForesight](https://github.com/SVSPraveen/ShipForesight) — *Logistics ML Predictive Engine*
 An AI-powered logistics platform predicting shipment delays before dispatch.
 - **Performance:** 3-stage zero-inflated pipeline (CatBoost + LightGBM + XGBoost) achieving **84.7% accuracy / 0.891 AUC-ROC** enriched via DuckDB.
 - **Multilingual Explanations:** Plain-language explanations in English, Hindi, Marathi, Gujarati, and Tamil via LangChain + Groq.
 - **Tech:** `Python`, `FastAPI`, `React`, `LightGBM`, `XGBoost`, `DuckDB`, `LangChain`
+
 
 ---
 
