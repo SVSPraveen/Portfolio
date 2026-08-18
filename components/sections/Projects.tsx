@@ -122,25 +122,36 @@ export default function Projects() {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center items-center gap-3 mb-12">
-          {filters.map(filter => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2 rounded-full font-medium transition-colors ${
-                activeFilter === filter
-                  ? "bg-accent text-white"
-                  : "border border-cardBorder text-textSecondary hover:border-accent hover:text-accent"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+          {filters.map(filter => {
+            const count = filter === "All" 
+              ? projectsData.length 
+              : projectsData.filter(p => p.tags.includes(filter)).length;
+            
+            return (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+                  activeFilter === filter
+                    ? "bg-accent text-white shadow-md shadow-accent/20 scale-105"
+                    : "border border-cardBorder text-textSecondary bg-white/70 hover:border-accent hover:text-accent hover:bg-white"
+                }`}
+              >
+                <span>{filter}</span>
+                <span className={`text-xs px-1.5 py-0.2 rounded-full ${
+                  activeFilter === filter ? "bg-white/25 text-white" : "bg-bgAlt text-textSecondary"
+                }`}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
           
           {/* Clear Highlight Pill */}
           {highlightedProjectIds !== null && (
             <button
               onClick={() => setHighlightedProjectIds(null)}
-              className="px-5 py-2 rounded-full font-medium transition-colors border border-accent text-accent hover:bg-accent/10 ml-2"
+              className="px-4 py-2 rounded-full text-sm font-medium transition-colors border border-accent text-accent hover:bg-accent/10 ml-2"
             >
               Clear Highlight
             </button>
@@ -167,13 +178,30 @@ export default function Projects() {
                     isHighlighted ? "ring-2 ring-accent ring-offset-2 border-accent" : "border-cardBorder/80"
                   } ${isDimmed ? "!opacity-40" : ""}`}
                 >
-                {/* Category & Title */}
-                <div className="flex items-center gap-2 mb-2">
-                  <Layers className="w-4 h-4 text-accent" />
-                  <span className="text-sm font-bold tracking-wider text-accent uppercase">
-                    {project.category}
-                  </span>
+                {/* Category & Status Badges */}
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-accent" />
+                    <span className="text-sm font-bold tracking-wider text-accent uppercase">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {project.id === "sprav-job-ai" && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      Shipped v2.4 Release • Windows Portable &amp; Web
+                    </span>
+                  )}
+
+                  {project.demoStatus !== "pending" && project.id !== "sprav-job-ai" && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                      Live Deployment
+                    </span>
+                  )}
                 </div>
+
                 <h3 className="text-2xl font-bold text-textPrimary mb-3">{project.title}</h3>
                 
                 {/* Description */}
@@ -209,7 +237,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder bg-white/60 text-textSecondary hover:border-accent hover:text-accent transition-colors font-medium text-sm shadow-sm"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder bg-white/60 text-textSecondary hover:border-accent hover:text-accent hover:bg-white transition-all font-medium text-sm shadow-sm"
                   >
                     <FaGithub className="w-4 h-4" />
                     GitHub
@@ -218,7 +246,7 @@ export default function Projects() {
                   {project.demoStatus === "pending" ? (
                     <button
                       disabled
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder text-textSecondary opacity-50 cursor-not-allowed font-medium text-sm"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder text-textSecondary opacity-50 cursor-not-allowed font-medium text-sm bg-bgAlt/50"
                     >
                       <Rocket className="w-4 h-4" />
                       Demo Coming Soon
@@ -228,7 +256,7 @@ export default function Projects() {
                       href={project.demoStatus}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl gradient-accent text-white hover:opacity-90 transition-opacity font-medium text-sm shadow-sm"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl gradient-accent text-white hover:opacity-90 hover:shadow-md hover:shadow-accent/20 transition-all font-medium text-sm shadow-sm"
                     >
                       <Rocket className="w-4 h-4" />
                       Live Demo
