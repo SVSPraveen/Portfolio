@@ -56,27 +56,27 @@ I break complex, messy data problems into specialized, deterministic components.
 - **Dispatch & Privacy:** Tailored STAR cover letter/pitch generation with 1-click human review dispatch queues, local Ollama / free cloud LLM support, and air-gapped zero-trust local XOR credential encryption.
 - **Tech:** `Python`, `FastAPI`, `React`, `SQLite`, `Sentence-Transformers`, `Playwright`, `Ollama`, `Groq`
 
-### 2. 🛡️ [Governed-RAGFlow](https://github.com/SVSPraveen/Governed-RAGFlow) — *Visual AI Orchestration & Governance Engine*
-A production-ready orchestration platform combining a visual drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time guardrails and self-healing retries.
-- **Visual Canvas:** Drag-and-drop execution graph builder in React 18 with step-by-step live status streaming, topological execution sorting, and 10-second preset onboarding pipelines.
-- **Real-Time Governance:** Multi-layered fail-closed guardrails (PII masking, toxicity filtering, and prompt injection defenses) short-circuiting malicious inputs before model invocation.
-- **Self-Healing Retrieval:** Dynamic semantic fallback routing that automatically switches knowledge branches when low-relevance documents are detected.
-- **Audit & Persistence:** PostgreSQL (Neon) persistence for full governance audit logs, token telemetry, latency tracking, and deterministic faithfulness evaluation.
-- **Tech:** `Python`, `FastAPI`, `React 18`, `PostgreSQL`, `Neon`, `Groq LPU`, `LangChain`, `Docker`
-
-### 3. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System (PharmaSpine AI)*
+### 2. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System (PharmaSpine AI)*
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-pharma--spine--ai.vercel.app-6366f1?style=flat-square)](https://pharma-spine-ai.vercel.app/)
 A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer (NSCLC) designed for oncologists and pharmacists.
 - **Pipeline:** Governed RAG over 600+ FDA drug labels and 3,900+ pages of NCCN guidelines using HyDE query expansion, MedCPT embeddings, and Cross-Encoder reranking.
 - **Security:** Role-based access (Patient/HCP/Admin) with JWT RBAC, Redis session blacklisting, and regex prompt-injection guardrails.
 - **Tech:** `Python`, `FastAPI`, `React`, `Qdrant`, `MedCPT`, `PostgreSQL`, `Redis`, `Docker`
 
-### 4. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer (Alphalens AI)*
+### 3. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer (Alphalens AI)*
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-alphalens--ai--one.vercel.app-6366f1?style=flat-square)](https://alphalens-ai-one.vercel.app/)
 An enterprise multi-agent RAG engine for SEC 10-K/10-Q filing analysis.
 - **Orchestration:** Multi-agent router (Financial Analyst, Comparison, Decomposition, Risk, Trend agents) executing parallel retrieval via Qdrant Cloud.
 - **Self-Eval & Guardrails:** Zero-cost deterministic evaluation layer scoring Faithfulness and Groundedness with a 5-state visual guardrail system.
 - **Tech:** `Python`, `Streamlit`, `Qdrant Cloud`, `BM25`, `Llama 3.3 70B`, `PostgreSQL`, `RapidFuzz`
+
+### 4. 🛡️ [Governed-RAGFlow](https://github.com/SVSPraveen/Governed-RAGFlow) — *Visual AI Orchestration & Governance Engine*
+A production-ready orchestration platform combining a visual drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time guardrails and self-healing retries.
+- **Visual Canvas:** Drag-and-drop execution graph builder in React 18 with step-by-step live status streaming, topological execution sorting, and 10-second preset onboarding pipelines.
+- **Real-Time Governance:** Multi-layered fail-closed guardrails (PII masking, toxicity filtering, and prompt injection defenses) short-circuiting malicious inputs before model invocation.
+- **Self-Healing Retrieval:** Dynamic semantic fallback routing that automatically switches knowledge branches when low-relevance documents are detected.
+- **Audit & Persistence:** PostgreSQL (Neon) persistence for full governance audit logs, token telemetry, latency tracking, and deterministic faithfulness evaluation.
+- **Tech:** `Python`, `FastAPI`, `React 18`, `PostgreSQL`, `Neon`, `Groq LPU`, `LangChain`, `Docker`
 
 ### 5. 🚢 [ShipForesight](https://github.com/SVSPraveen/ShipForesight) — *Logistics ML Predictive Engine*
 An AI-powered logistics platform predicting shipment delays before dispatch.

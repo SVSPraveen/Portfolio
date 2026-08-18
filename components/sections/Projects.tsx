@@ -26,22 +26,6 @@ const projectsData = [
     driveUrl: "https://drive.google.com/drive/folders/1JOm-Rth1HoB5xZqDva61JG9-aonj4jae?usp=sharing"
   },
   {
-    id: "governed-ragflow",
-    category: "AGENTIC ORCHESTRATION & GOVERNANCE",
-    tags: ["RAG", "AI", "Backend"],
-    title: "Governed-RAGFlow",
-    description: "A production-grade AI visual orchestration engine combining a drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time prompt-injection & PII guardrails, semantic multi-agent routing, and self-healing retry loops.",
-    bullets: [
-      "Built a full-featured visual drag-and-drop pipeline builder in React 18 with live step-by-step execution telemetry, topological graph sorting, and interactive pre-built onboarding templates.",
-      "Engineered real-time fail-closed governance guardrails (PII masking, toxicity filtering, and regex/LLM prompt-injection defenses) that short-circuit malicious inputs before LLM execution.",
-      "Implemented an adaptive self-healing retrieval architecture with semantic fallback routing that dynamically switches knowledge branches upon detecting low-confidence or irrelevant documents.",
-      "Integrated PostgreSQL (Neon) persistence for comprehensive audit trails, token telemetry, latency logging, and deterministic faithfulness evaluations."
-    ],
-    tech: ["Python", "FastAPI", "React 18", "PostgreSQL", "Neon", "Groq LPU", "LangChain", "Docker"],
-    github: "https://github.com/SVSPraveen/Governed-RAGFlow",
-    demoStatus: "pending"
-  },
-  {
     id: "respirag",
     category: "CLINICAL AI",
     tags: ["RAG", "AI", "Backend"],
@@ -72,6 +56,22 @@ const projectsData = [
     tech: ["Python", "Streamlit", "Qdrant Cloud", "BM25", "Llama 3.3", "PostgreSQL", "RapidFuzz"],
     github: "https://github.com/SVSPraveen/Finance-RAG-Copilot",
     demoStatus: "https://alphalens-ai-one.vercel.app/"
+  },
+  {
+    id: "governed-ragflow",
+    category: "AGENTIC ORCHESTRATION & GOVERNANCE",
+    tags: ["RAG", "AI", "Backend"],
+    title: "Governed-RAGFlow",
+    description: "A production-grade AI visual orchestration engine combining a drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time prompt-injection & PII guardrails, semantic multi-agent routing, and self-healing retry loops.",
+    bullets: [
+      "Built a full-featured visual drag-and-drop pipeline builder in React 18 with live step-by-step execution telemetry, topological graph sorting, and interactive pre-built onboarding templates.",
+      "Engineered real-time fail-closed governance guardrails (PII masking, toxicity filtering, and regex/LLM prompt-injection defenses) that short-circuit malicious inputs before LLM execution.",
+      "Implemented an adaptive self-healing retrieval architecture with semantic fallback routing that dynamically switches knowledge branches upon detecting low-confidence or irrelevant documents.",
+      "Integrated PostgreSQL (Neon) persistence for comprehensive audit trails, token telemetry, latency logging, and deterministic faithfulness evaluations."
+    ],
+    tech: ["Python", "FastAPI", "React 18", "PostgreSQL", "Neon", "Groq LPU", "LangChain", "Docker"],
+    github: "https://github.com/SVSPraveen/Governed-RAGFlow",
+    demoStatus: "pending"
   },
   {
     id: "shipforesight",
