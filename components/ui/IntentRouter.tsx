@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTypewriter } from 'react-simple-typewriter';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Search, X } from 'lucide-react';
 import { type Intent, intents, getSuggestions } from '@/lib/intents';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -36,6 +37,7 @@ export default function IntentRouter() {
   const [noMatch, setNoMatch] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const routingTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const [placeholderText] = useTypewriter({
@@ -66,6 +68,21 @@ export default function IntentRouter() {
     setShowDropdown(results.length > 0);
     setHighlightedIndex(-1);
   }, [debouncedQuery]);
+
+  // ── Outside click dismissal ──────────────────────────────────────────────
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
 
   // ── Cleanup routing timers on unmount ────────────────────────────────────
   useEffect(() => {
@@ -184,30 +201,47 @@ export default function IntentRouter() {
   // Render
   // ─────────────────────────────────────────────────────────────────────────
   return (
-    <div className="w-full max-w-xl mx-auto">
+    <div ref={containerRef} className="w-full max-w-xl mx-auto">
       {/* Glass card */}
       <div className="bg-white/70 backdrop-blur-md rounded-2xl border border-[#E9E7F5] p-5 shadow-lg shadow-[#6366F1]/10">
 
-        {/* Input */}
-        <input
-          ref={inputRef}
-          type="text"
-          value={query}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          placeholder={placeholderText}
-          aria-label="Ask about Praveen's work"
-          role="combobox"
-          aria-expanded={showDropdown}
-          aria-controls="intent-listbox"
-          aria-haspopup="listbox"
-          autoComplete="off"
-          spellCheck={false}
-          className="w-full rounded-xl border border-[#E9E7F5] bg-[#FAFAFC] px-4 py-3 text-sm text-[#1E1B2E] placeholder:text-[#5B5770]/60 focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition-shadow duration-150"
-        />
+        {/* Input Container */}
+        <div className="relative flex items-center">
+          <Search className="w-4 h-4 text-accent absolute left-4 pointer-events-none" />
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholderText}
+            aria-label="Ask about Praveen's work"
+            role="combobox"
+            aria-expanded={showDropdown}
+            aria-controls="intent-listbox"
+            aria-haspopup="listbox"
+            autoComplete="off"
+            spellCheck={false}
+            className="w-full rounded-xl border border-[#E9E7F5] bg-[#FAFAFC] pl-11 pr-10 py-3 text-sm text-[#1E1B2E] placeholder:text-[#5B5770]/60 focus:outline-none focus:ring-2 focus:ring-[#6366F1] transition-shadow duration-150"
+          />
+          {query.length > 0 && (
+            <button
+              onClick={() => {
+                setQuery('');
+                setDebouncedQuery('');
+                setShowDropdown(false);
+                inputRef.current?.focus();
+              }}
+              className="absolute right-3 p-1 rounded-md text-textSecondary hover:text-accent hover:bg-bgAlt transition-colors"
+              aria-label="Clear search"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
 
         {/* Helper text */}
-        <p className="mt-2 text-xs text-[#5B5770]">
+        <p className="mt-2 text-xs text-[#5B5770] text-center sm:text-left">
           Type any query or keyword to route directly to Praveen&apos;s portfolio data.
         </p>
 

@@ -1,8 +1,9 @@
 export const skillProjectMap: Record<string, string[]> = {
-  "agentic-orchestration": ["finance-rag-copilot", "sprav-job-ai"],
-  "retrieval-search": ["respirag", "finance-rag-copilot"],
-  "llms-vector-db": ["respirag", "finance-rag-copilot", "sprav-job-ai"],
-  "ml-evaluation": ["respirag", "finance-rag-copilot", "sprav-job-ai", "shipforesight"],
-  "fullstack-backend": ["respirag", "sprav-job-ai", "shipforesight"],
-  "cloud-security": ["respirag", "sprav-job-ai"],
+  "agentic-orchestration": ["sprav-job-ai", "governed-ragflow", "finance-rag-copilot"],
+  "retrieval-search": ["governed-ragflow", "respirag", "finance-rag-copilot"],
+  "llms-vector-db": ["sprav-job-ai", "governed-ragflow", "respirag", "finance-rag-copilot"],
+  "ml-evaluation": ["governed-ragflow", "respirag", "finance-rag-copilot", "sprav-job-ai", "shipforesight"],
+  "fullstack-backend": ["sprav-job-ai", "governed-ragflow", "respirag", "shipforesight"],
+  "cloud-security": ["governed-ragflow", "respirag", "sprav-job-ai"],
 };
+

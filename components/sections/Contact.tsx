@@ -32,12 +32,12 @@ export default function Contact() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          // TODO: replace with real Web3Forms access key from web3forms.com
-          access_key: 'WEB3FORMS_ACCESS_KEY_PLACEHOLDER',
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '8860f8d8-eca1-4b55-98a0-d48df5124186',
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: 'New message from portfolio contact form',
+          subject: 'New message from portfolio contact form — ' + formData.name,
+          from_name: 'Portfolio Contact Form',
         }),
       });
       
@@ -91,11 +91,11 @@ export default function Contact() {
             GitHub
           </a>
           <a
-            href="mailto:svspraveens@gmail.com"
+            href="mailto:svspraveens@gmail.com?subject=AI%2FML%20Engineering%20Opportunity%20—%20Portfolio%20Inquiry"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
           >
             <Mail className="w-5 h-5" />
-            Email
+            Email Directly
           </a>
           <a
             href="/resume.pdf"
@@ -115,7 +115,7 @@ export default function Contact() {
           <h3 className="text-xl font-bold text-textPrimary">Quick Chat / Discussion on AI Applications</h3>
         </div>
         <p className="text-textSecondary mb-6">
-          Fill out the form below and I&apos;ll get back to you shortly.
+          Fill out the form below or reach out directly at <a href="mailto:svspraveens@gmail.com" className="text-accent font-medium hover:underline">svspraveens@gmail.com</a>.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -166,8 +166,15 @@ export default function Contact() {
           ) : (
             <div className="mt-2 flex flex-col gap-3 w-full md:w-auto md:self-end">
               {submitStatus === 'error' && (
-                <div className="text-red-600 text-sm font-medium text-center md:text-right">
-                  Something went wrong — please try again, or email me directly at svspraveens@gmail.com.
+                <div className="text-sm text-textSecondary bg-red-500/10 border border-red-500/20 rounded-xl p-3 text-center flex flex-col gap-2">
+                  <span className="text-red-600 font-medium">Unable to send message through the online form right now.</span>
+                  <a
+                    href={`mailto:svspraveens@gmail.com?subject=Contact%20from%20Portfolio&body=${encodeURIComponent(`Hi Praveen,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`}
+                    className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-accent hover:underline"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Click here to send directly via your email client →
+                  </a>
                 </div>
               )}
               <button

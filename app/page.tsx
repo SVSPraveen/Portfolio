@@ -28,7 +28,7 @@ export default function Home() {
       <Certifications />
       
       <section className="py-24 px-4 w-full">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center mb-12">
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs md:text-sm font-bold uppercase tracking-widest mb-4 shadow-sm backdrop-blur-sm">
             Open Source & Activity
           </span>
@@ -37,9 +37,9 @@ export default function Home() {
           </h2>
         </div>
         <GithubContributions />
-        <div className="max-w-4xl mx-auto mt-6 flex items-center justify-center gap-2 text-sm text-textSecondary">
-          <CheckCircle2 className="w-4 h-4 text-accent" />
-          <span>SPrav AI — Ongoing — Building a local, multi-agent AI engine from scratch.</span>
+        <div className="max-w-5xl mx-auto mt-6 flex items-center justify-center gap-2 text-sm text-textSecondary text-center px-4">
+          <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+          <span>SPrav Job AI (v2.4 Pro) &amp; Governed-RAGFlow — Active development on autonomous agentic career intelligence &amp; visual RAG governance engines.</span>
         </div>
         
         {/* GitHub Profile Button */}

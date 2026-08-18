@@ -59,7 +59,8 @@ export const intents: Intent[] = [
     keywords: [
       "projects", "show me your projects", "rag projects", "what have you built", 
       "github", "portfolio work", "built", "repos", "code", "demos", "apps", 
-      "applications", "financial agent", "clinical rag", "systems", "work samples"
+      "applications", "sprav job ai", "governed ragflow", "ragflow", "job ai",
+      "financial agent", "clinical rag", "systems", "work samples"
     ],
   },
   {

@@ -70,14 +70,10 @@ export default function Experience() {
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <span>Lowered LLM evaluation costs significantly while maintaining high faithfulness scores by building a deterministic RapidFuzz + PyTorch scoring pipeline tracked in MLflow.</span>
                 </li>
-                <li className="flex gap-3 items-start text-textSecondary leading-relaxed text-base">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Reduced terminology errors and eliminated repeat-query latency by fine-tuning Llama 3.1 8B with LoRA and adding Redis semantic caching to a GraphRAG pipeline on AWS Bedrock.</span>
-                </li>
               </ul>
 
               <div className="flex flex-wrap gap-2">
-                {['LangGraph', 'Qdrant Cloud', 'Llama 3.3', 'MLflow', 'AWS Bedrock', 'Redis'].map(tech => (
+                {['LangGraph', 'Qdrant Cloud', 'Llama 3.3', 'MLflow', 'PyTorch', 'RapidFuzz', 'MCP'].map(tech => (
                   <span key={tech} className="rounded-full border border-cardBorder px-3 py-1.5 text-sm text-textSecondary bg-bgAlt">
                     {tech}
                   </span>

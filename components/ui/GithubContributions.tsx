@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 type ContributionDay = {
   contributionCount: number;
@@ -20,6 +20,7 @@ export default function GithubContributions() {
   const [data, setData] = useState<ContributionData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchContributions() {
@@ -43,6 +44,13 @@ export default function GithubContributions() {
     fetchContributions();
   }, []);
 
+  useEffect(() => {
+    if (data && scrollRef.current) {
+      // On narrow viewports, auto-scroll to the far right so the latest contributions are immediately visible
+      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
+    }
+  }, [data]);
+
   const getColor = (count: number, maxCount: number) => {
     if (count === 0) return '#F3F1FA'; // bgAlt roughly
     
@@ -57,7 +65,7 @@ export default function GithubContributions() {
 
   if (loading) {
     return (
-      <div className="w-full max-w-4xl mx-auto p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm animate-pulse">
+      <div className="w-full max-w-5xl mx-auto p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm animate-pulse">
         <div className="h-6 bg-bgAlt rounded w-48 mb-6 mx-auto"></div>
         <div className="h-[120px] bg-bgAlt rounded-xl w-full"></div>
       </div>
@@ -66,7 +74,7 @@ export default function GithubContributions() {
 
   if (error || !data) {
     return (
-      <div className="w-full max-w-4xl mx-auto p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm text-center">
+      <div className="w-full max-w-5xl mx-auto p-6 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm text-center">
         <p className="text-textSecondary text-sm font-medium">GitHub activity is temporarily unavailable</p>
       </div>
     );
@@ -100,7 +108,7 @@ export default function GithubContributions() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 md:p-8 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm flex flex-col gap-4">
+    <div className="w-full max-w-5xl mx-auto p-5 sm:p-6 md:p-8 rounded-2xl bg-white/70 backdrop-blur-md border border-cardBorder shadow-sm flex flex-col gap-4">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-cardBorder/60 pb-4">
         <div>
           <h3 className="text-lg font-bold text-textPrimary text-center sm:text-left">
@@ -115,15 +123,18 @@ export default function GithubContributions() {
         </div>
       </div>
 
-      {/* Heatmap Grid */}
-      <div className="overflow-x-auto no-scrollbar py-2 flex justify-center">
-        <div className="flex gap-1 min-w-max">
+      {/* Heatmap Grid — full width, no-scrollbar, centered on desktop, scrollable & latest-first on mobile */}
+      <div 
+        ref={scrollRef}
+        className="overflow-x-auto no-scrollbar py-2 w-full flex justify-start md:justify-center"
+      >
+        <div className="flex gap-[3px] sm:gap-1 min-w-max">
           {sortedWeeks.map((week, weekIndex) => (
-            <div key={weekIndex} className="flex flex-col gap-1">
+            <div key={weekIndex} className="flex flex-col gap-[3px] sm:gap-1">
               {week.contributionDays.map((day) => (
                 <div
                   key={day.date}
-                  className="w-3 h-3 rounded-sm transition-transform hover:scale-125 cursor-pointer"
+                  className="w-[11px] h-[11px] sm:w-3 sm:h-3 rounded-[2px] sm:rounded-sm transition-transform hover:scale-125 cursor-pointer"
                   style={{ backgroundColor: getColor(day.contributionCount, maxCount) }}
                   title={`${day.contributionCount} contributions on ${day.date}`}
                 />
@@ -135,7 +146,7 @@ export default function GithubContributions() {
 
       {/* Legend & Hint Footer */}
       <div className="flex flex-wrap items-center justify-between text-xs text-textSecondary pt-3 border-t border-cardBorder/60 gap-3">
-        <span className="font-medium">💡 Hover over any box to view exact date & commit count</span>
+        <span className="font-medium">💡 Hover over any box to view exact date &amp; commit count</span>
         <div className="flex items-center gap-1.5">
           <span className="text-[11px]">Less</span>
           <div className="w-3 h-3 rounded-sm border border-cardBorder/40" style={{ backgroundColor: '#F3F1FA' }} title="No contributions" />
@@ -149,3 +160,4 @@ export default function GithubContributions() {
     </div>
   );
 }
+
