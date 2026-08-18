@@ -55,7 +55,7 @@ const projectsData = [
     ],
     tech: ["Python", "FastAPI", "React 18", "Qdrant", "MedCPT", "PostgreSQL", "Redis", "Docker"],
     github: "https://github.com/SVSPraveen/RespiRAG",
-    demoStatus: "pending"
+    demoStatus: "https://pharma-spine-ai.vercel.app/"
   },
   {
     id: "finance-rag-copilot",
@@ -71,7 +71,7 @@ const projectsData = [
     ],
     tech: ["Python", "Streamlit", "Qdrant Cloud", "BM25", "Llama 3.3", "PostgreSQL", "RapidFuzz"],
     github: "https://github.com/SVSPraveen/Finance-RAG-Copilot",
-    demoStatus: "pending"
+    demoStatus: "https://alphalens-ai-one.vercel.app/"
   },
   {
     id: "shipforesight",
