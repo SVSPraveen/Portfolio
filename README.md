@@ -14,7 +14,7 @@
 
 ## 👤 About Me
 
-- 📍 **Location:** Mumbai, India
+- 📍 **Location:** Hyderabad, India
 - 🎓 **Focus:** AI/ML Systems, Production RAG Pipelines, Multi-Agent Architecture & High-Throughput Python Backends
 - 💼 **Experience:** AI/ML Engineer Intern @ MobcoderAI (Onsite)
 - 🤝 **Open For:** AI/ML Engineering Roles, Python Backend Opportunities, GenAI Internships, RAG Systems Work, and Applied ML Collaborations
@@ -49,12 +49,13 @@ I break complex, messy data problems into specialized, deterministic components.
 
 ## 🔬 Featured Projects
 
-### 1. 🤖 [SPrav Job AI](https://github.com/SVSPraveen/SPrav-Job-AI) — *Autonomous Career Intelligence & 1-Click Dispatch (Pro v2.4)*
-[![Live Showcase](https://img.shields.io/badge/🌐_Live_Demo-sprav--job--ai.pages.dev-6366f1?style=flat-square)](https://sprav-job-ai.pages.dev/) [![GitHub Releases](https://img.shields.io/badge/📦_GitHub_Releases-Download-8b5cf6?style=flat-square)](https://github.com/SVSPraveen/SPrav-Job-AI/releases) [![Google Drive](https://img.shields.io/badge/📥_Google_Drive-385MB_Portable_ZIP-10b981?style=flat-square)](https://drive.google.com/drive/folders/1JOm-Rth1HoB5xZqDva61JG9-aonj4jae?usp=sharing)
-- **Scanning & Ingestion:** Autonomous scanner monitoring 28,700+ verified tech ATS career boards (Greenhouse, Lever, Ashby, Workday, SmartRecruiters) and Wellfound with <18ms SQLite latency and <120MB RAM footprint.
-- **ATS Matching & Scoring:** Dual-stage cosine similarity matching via Sentence-Transformers embeddings combined with multi-criteria LLM evaluation rubrics against master PDF resumes.
-- **Dispatch & Privacy:** Tailored STAR cover letter/pitch generation with 1-click human review dispatch queues, local Ollama / free cloud LLM support, and air-gapped zero-trust local XOR credential encryption.
-- **Tech:** `Python`, `FastAPI`, `React`, `SQLite`, `Sentence-Transformers`, `Playwright`, `Ollama`, `Groq`
+### 1. 🤖 [SPrav Job AI](https://sprav-jobai.vercel.app/) — *100% Client-Side Sovereign Career OS*
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-sprav--jobai.vercel.app-6366f1?style=flat-square)](https://sprav-jobai.vercel.app/) [![Client-Side](https://img.shields.io/badge/🔒_Privacy-100%25_Air--Gapped_IndexedDB-blue?style=flat-square)](https://sprav-jobai.vercel.app/) [![WebGPU](https://img.shields.io/badge/⚡_Inference-WebGPU_%26_Local_AI-emerald?style=flat-square)](https://sprav-jobai.vercel.app/)
+- **1st-Party ATS Engine:** Direct client-side streaming across 500+ corporate ATS portals (Ashby, Greenhouse, Lever, SmartRecruiters) and 3.5M+ tech opportunities with $0 server cost.
+- **Client-Side AI Inference:** In-browser WebGPU execution (Qwen 2.5-Coder), local Ollama, and 6 CORS BYOK cloud providers with zero server prompts or data logging.
+- **ATS PDF Compiler & Studio:** Pure JS PDF 1.4 vector engine generating Harvard single-column ATS resumes with 12-dimension X-Ray diagnostics and anti-hallucination verification.
+- **Anti-Ghost Radar & AutoFill:** Real-time hiring velocity multipliers (4.2x callback probability for <4h drops), ghost-job filtering, and zero-permission 1-click ATS application autofill bookmarklet.
+- **Tech:** `React 19`, `Vite`, `WebGPU`, `IndexedDB`, `Python`, `Ollama`, `PDF 1.4 Compiler`
 
 ### 2. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System (PharmaSpine AI)*
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-pharma--spine--ai.vercel.app-6366f1?style=flat-square)](https://pharma-spine-ai.vercel.app/)
@@ -135,7 +136,7 @@ npm run dev
 - 💼 **LinkedIn:** [linkedin.com/in/svs-praveen-s](https://www.linkedin.com/in/svs-praveen-s/)
 - 🐙 **GitHub:** [github.com/SVSPraveen](https://github.com/SVSPraveen)
 - 📧 **Email:** [svspraveens@gmail.com](mailto:svspraveens@gmail.com)
-- 📄 **Resume:** Available in `public/resume.pdf`
+- 📄 **Resume:** Available in `public/Resume.pdf`
 
 ---
 © SVS Praveen. Built with purpose, precision, and zero fluff.

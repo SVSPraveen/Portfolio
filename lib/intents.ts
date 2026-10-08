@@ -26,7 +26,7 @@ export const intents: Intent[] = [
     keywords: [
       "about", "who are you", "background", "bio", "tell me about yourself", 
       "introduction", "education", "college", "university", "degree", 
-      "location", "where are you based", "mumbai", "india", "summary", 
+      "location", "where are you based", "mumbai", "hyderabad", "india", "summary", 
       "who is praveen", "profile", "overview"
     ],
   },

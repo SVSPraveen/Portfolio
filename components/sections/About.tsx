@@ -88,7 +88,7 @@ export default function About() {
               <div className="flex flex-col">
                 <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Location</span>
                 <span className="text-xs md:text-sm font-bold text-textPrimary">
-                  Mumbai, India
+                  Hyderabad, India
                 </span>
               </div>
             </div>

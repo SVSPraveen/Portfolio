@@ -39,7 +39,7 @@ export default function Home() {
         <GithubContributions />
         <div className="max-w-5xl mx-auto mt-6 flex items-center justify-center gap-2 text-sm text-textSecondary text-center px-4">
           <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
-          <span>SPrav Job AI (v2.4 Pro) &amp; Governed-RAGFlow — Active development on autonomous agentic career intelligence &amp; visual RAG governance engines.</span>
+          <span>SPrav Job AI &amp; Governed-RAGFlow — Active development on sovereign client-side career intelligence &amp; visual RAG governance engines.</span>
         </div>
         
         {/* GitHub Profile Button */}

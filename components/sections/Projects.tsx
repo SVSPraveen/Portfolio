@@ -2,28 +2,24 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers, CheckCircle2, Rocket, ArrowUpRight, Download } from 'lucide-react';
+import { Layers, CheckCircle2, Rocket, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import { SiGoogledrive } from 'react-icons/si';
 
 const projectsData = [
   {
     id: "sprav-job-ai",
-    category: "AGENTIC CAREER AI",
-    tags: ["AI", "Backend", "RAG"],
-    title: "SPrav Job AI (Pro v2.4)",
-    description: "An autonomous, local-first AI career engine that scans 28,700+ tech company ATS portals (Greenhouse, Lever, Ashby, Workday, SmartRecruiters) and Wellfound, calculates cosine similarity against master PDF resumes, and prepares STAR-tailored applications for 1-click dispatch.",
+    category: "SOVEREIGN CAREER OS",
+    tags: ["Client-Side AI", "WebGPU", "Full Stack"],
+    title: "SPrav Job AI",
+    description: "An anti-SaaS, 100% client-side career operating system. Scans 500+ direct corporate ATS feeds (Ashby, Greenhouse, Lever, SmartRecruiters) and tech opportunities with zero middlemen, zero data harvesting, and zero paywalls. Features in-browser WebGPU & BYOK AI inference, Harvard ATS resume compiler, anti-ghost hiring radar, and an air-gapped IndexedDB vault.",
     bullets: [
-      "Scans and monitors 28,700+ real tech ATS company career portals and job feeds with <18ms SQLite query latency and <120MB memory footprint.",
-      "Engineers dual-stage matching: dense Sentence-Transformers embedding cosine similarity + multi-criteria LLM rubrics to score genuine role fit.",
-      "Generates tailored STAR cover letters and outreach pitches with a 1-click human review dispatch queue, supporting local Ollama models and cloud inference (Gemini / Groq).",
-      "Shipped as a 100% private, air-gapped standalone Windows portable application (v2.4 Pro) with zero-trust local XOR credential encryption."
+      "Direct 1st-Party ATS Engine: Scans 500+ corporate ATS endpoints (Ashby, Greenhouse, Lever, SmartRecruiters) directly with client-side streaming and zero-cost automated GitHub Actions workers.",
+      "100% Client-Side Sovereign AI: Runs local quantized Qwen 2.5-Coder via in-browser WebGPU shaders, local Ollama, and 6 CORS BYOK cloud providers with zero server telemetry or prompt logging.",
+      "In-Browser ATS PDF Compiler & Split Studio: Pure JS PDF 1.4 vector compiler generating single-column Harvard ATS resumes with real-time keyword density, 12-dimension X-Ray diagnostics, and anti-hallucination fact checking.",
+      "Anti-Ghost Radar & Universal AutoFill: Computes authentic hiring velocity (4.2x callback multiplier for <4h listings), detects ghost jobs/repost loops, and provides a zero-permission 1-click ATS application autofill bookmarklet."
     ],
-    tech: ["Python", "FastAPI", "React", "SQLite", "Sentence-Transformers", "Playwright", "Ollama", "Groq"],
-    github: "https://github.com/SVSPraveen/SPrav-Job-AI",
-    demoStatus: "https://sprav-job-ai.pages.dev/",
-    downloadUrl: "https://github.com/SVSPraveen/SPrav-Job-AI/releases",
-    driveUrl: "https://drive.google.com/drive/folders/1JOm-Rth1HoB5xZqDva61JG9-aonj4jae?usp=sharing"
+    tech: ["React 19", "Vite", "WebGPU", "IndexedDB", "Python", "Local AI / Ollama", "PDF 1.4 Compiler"],
+    demoStatus: "https://sprav-jobai.vercel.app/"
   },
   {
     id: "respirag",
@@ -190,7 +186,7 @@ export default function Projects() {
                   {project.id === "sprav-job-ai" && (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-sm">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      Shipped v2.4 Release • Windows Portable &amp; Web
+                      Live Web App • 100% Client-Side
                     </span>
                   )}
 
@@ -233,15 +229,17 @@ export default function Projects() {
 
                 {/* Buttons Row */}
                 <div className="flex flex-wrap items-center gap-3 mt-auto pt-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder bg-white/60 text-textSecondary hover:border-accent hover:text-accent hover:bg-white transition-all font-medium text-sm shadow-sm"
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    GitHub
-                  </a>
+                  {'github' in project && project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cardBorder bg-white/60 text-textSecondary hover:border-accent hover:text-accent hover:bg-white transition-all font-medium text-sm shadow-sm"
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      GitHub
+                    </a>
+                  )}
 
                   {project.demoStatus === "pending" ? (
                     <button
@@ -261,30 +259,6 @@ export default function Projects() {
                       <Rocket className="w-4 h-4" />
                       Live Demo
                       <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
-
-                  {'downloadUrl' in project && project.downloadUrl && (
-                    <a
-                      href={project.downloadUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-accent/40 bg-accent/10 text-accent hover:bg-accent hover:text-white transition-all font-medium text-sm shadow-sm"
-                    >
-                      <Download className="w-4 h-4" />
-                      Release Download
-                    </a>
-                  )}
-
-                  {'driveUrl' in project && project.driveUrl && (
-                    <a
-                      href={project.driveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all font-medium text-sm shadow-sm"
-                    >
-                      <SiGoogledrive className="w-4 h-4" />
-                      Google Drive (385MB)
                     </a>
                   )}
                 </div>

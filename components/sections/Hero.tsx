@@ -112,7 +112,7 @@ export default function Hero() {
             </button>
 
             <a
-              href="/resume.pdf"
+              href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-xl border border-accent text-accent text-sm md:text-base font-medium hover:bg-bgAlt transition-colors min-w-[150px]"

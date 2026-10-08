@@ -43,7 +43,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mt-1">
               <div className="inline-flex items-center gap-1.5 text-[11px] text-textSecondary bg-bgAlt px-2.5 py-1 rounded-full border border-cardBorder">
                 <MapPin className="w-3 h-3 text-accent" />
-                <span>Mumbai, India</span>
+                <span>Hyderabad, India</span>
               </div>
               <div className="inline-flex items-center gap-1.5 text-[11px] text-textPrimary bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full font-medium">
                 <span className="relative flex h-1.5 w-1.5">

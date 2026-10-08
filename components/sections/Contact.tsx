@@ -98,7 +98,7 @@ export default function Contact() {
             Email Directly
           </a>
           <a
-            href="/resume.pdf"
+            href="/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cardBorder/80 bg-white/60 backdrop-blur-sm text-textSecondary hover:border-accent hover:text-accent transition-all duration-200 font-medium shadow-sm hover:shadow"
