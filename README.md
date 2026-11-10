@@ -27,12 +27,11 @@ I break complex, messy data problems into specialized, deterministic components.
 
 | Domain | Technologies & Frameworks |
 |---|---|
-| **AI / GenAI / Agents** | LangGraph, LangChain, Agentic RAG, Multi-Agent Systems (MoE routing), Model Context Protocol (MCP), Vision-Language Models (VLM), Whisper, Tool-Calling, LlamaIndex, Self-RAG, CRAG, LoRA Fine-tuning |
-| **Retrieval & Vector Search** | Qdrant Cloud, pgvector, Pinecone, MedCPT, Hybrid Search (BM25 + Dense), Cross-Encoder Re-ranking, Reciprocal Rank Fusion (RRF), Semantic Caching, Sentence-Transformers |
-| **LLMs & Infrastructure** | Groq, Ollama, vLLM, DeepSeek-R1/R2, Llama 3.3 70B, Qwen 2.5/3, OpenAI API, AWS Bedrock |
-| **ML & Deterministic Eval** | Scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, MLflow, RAGAS, RapidFuzz, NDCG@5, Hallucination & Drift Detection, AST Mutation Testing (DeployProof), pytest |
-| **Backend & Automation** | Python 3.11+, FastAPI, REST APIs, React 18, TypeScript, Playwright, PostgreSQL (Neon), MongoDB, SQLite, DuckDB, Redis (Caching & Session RBAC), SQLAlchemy, Pydantic, PyWebView |
-| **Cloud & Security** | AWS, Oracle OCI, GCP, Cloudflare Pages, Docker, Kubernetes, OAuth2, JWT, AES-GCM, HIPAA & GDPR compliance, Linux, Git |
+| **LLM & RAG** | Retrieval-Augmented Generation (RAG), Hybrid Search (BM25 + Dense), HyDE, Reciprocal Rank Fusion (RRF), Cross-Encoder Reranking, Multi-Agent Orchestration, Prompt Engineering |
+| **LLM Frameworks & Models** | LangChain, LangGraph, Llama 3.x, Qwen 2.5, Groq, Ollama, OpenAI API, Hugging Face, Sentence-Transformers, Vision-Language Models (VLM), Whisper |
+| **LLM Evaluation & Observability** | Faithfulness & Groundedness Evaluation, Hallucination Detection, Citation Accuracy, LLM-as-Judge, MLflow, Evaluation Harnesses, Audit Logging, AST Mutation Testing (DeployProof), pytest |
+| **Backend & Data** | Python, FastAPI, REST APIs, PostgreSQL, Redis, SQLAlchemy, Qdrant, MedCPT, TypeScript (Frontend), React |
+| **Cloud, DevOps & Tools** | AWS, Oracle Cloud Infrastructure (OCI), Docker, Git, GitHub Actions (CI/CD), JWT Authentication, OAuth2, Linux |
 
 ---
 
@@ -62,13 +61,14 @@ A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer
 - **Security:** Role-based access (Patient/HCP/Admin) with JWT RBAC, Redis session blacklisting, and regex prompt-injection guardrails.
 - **Tech:** `Python`, `FastAPI`, `React`, `Qdrant`, `MedCPT`, `PostgreSQL`, `Redis`, `Docker`
 
-### 2. 🤖 [SPrav Job AI](https://sprav-jobai.vercel.app/) — *100% Client-Side Sovereign Career OS*
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-sprav--jobai.vercel.app-6366f1?style=flat-square)](https://sprav-jobai.vercel.app/) [![Client-Side](https://img.shields.io/badge/🔒_Privacy-100%25_Air--Gapped_IndexedDB-blue?style=flat-square)](https://sprav-jobai.vercel.app/) [![WebGPU](https://img.shields.io/badge/⚡_Inference-WebGPU_%26_Local_AI-emerald?style=flat-square)](https://sprav-jobai.vercel.app/)
-- **1st-Party ATS Engine:** Direct client-side streaming across 500+ corporate ATS portals (Ashby, Greenhouse, Lever, SmartRecruiters) and 3.5M+ tech opportunities with $0 server cost.
-- **Client-Side AI Inference:** In-browser WebGPU execution (Qwen 2.5-Coder), local Ollama, and 6 CORS BYOK cloud providers with zero server prompts or data logging.
-- **ATS PDF Compiler & Studio:** Pure JS PDF 1.4 vector engine generating Harvard single-column ATS resumes with 12-dimension X-Ray diagnostics and anti-hallucination verification.
-- **Anti-Ghost Radar & AutoFill:** Real-time hiring velocity multipliers (4.2x callback probability for <4h drops), ghost-job filtering, and zero-permission 1-click ATS application autofill bookmarklet.
-- **Tech:** `React 19`, `Vite`, `WebGPU`, `IndexedDB`, `Python`, `Ollama`, `PDF 1.4 Compiler`
+### 2. 🤖 [SPrav Job AI](https://sprav-jobai.vercel.app/) — *Client-Side Job Search Platform*
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-sprav--jobai.vercel.app-6366f1?style=flat-square)](https://sprav-jobai.vercel.app/)
+A 100% client-side job platform with zero backend: pulls live tech listings from public corporate ATS feeds and Hacker News, storing user data in an encrypted IndexedDB vault with local WebGPU inference.
+- **Zero-Backend Architecture:** Pulls live listings from public ATS endpoints (Greenhouse, Lever, Ashby, SmartRecruiters and others) and Hacker News "Who is Hiring", storing user data in an encrypted IndexedDB vault.
+- **Python ATS Harvester:** Standard-library Python harvester on a GitHub Actions cron that enforces a 14-day freshness limit, filters evergreen/ghost postings and de-duplicates by SHA-256 fingerprint.
+- **12-Dimension ATS Scoring & PDF Compiler:** Vendor-specific rules scoring engine and dependency-free in-browser PDF resume compiler with a guardrail checking generated bullets against verified profile facts.
+- **Hardware-Aware AI Inference:** Local quantized Qwen 2.5-Coder via WebGPU, falling back to Ollama or six bring-your-own-key cloud providers; covered by 488 automated tests (Node test runner and Vitest) with lint and CSP checks.
+- **Tech:** `React`, `Vite`, `WebGPU`, `IndexedDB`, `Node.js`, `Python`, `Ollama`
 
 ### 3. 🧪 [DeployProof](https://github.com/SVSPraveen/deployproof) — *In-Memory AST Mutation-Testing CLI*
 [![PyPI](https://img.shields.io/badge/PyPI-v1.1.19-blue?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/deployproof/) [![GitHub Stars](https://img.shields.io/badge/GitHub-25_Stars-yellow?style=flat-square&logo=github)](https://github.com/SVSPraveen/deployproof)

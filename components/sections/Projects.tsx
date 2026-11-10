@@ -27,14 +27,14 @@ const projectsData = [
     category: "SOVEREIGN CAREER OS",
     tags: ["Client-Side AI", "WebGPU", "Full Stack", "AI", "Backend"],
     title: "SPrav Job AI",
-    description: "An anti-SaaS, 100% client-side career operating system. Scans 500+ direct corporate ATS feeds (Ashby, Greenhouse, Lever, SmartRecruiters) and tech opportunities with zero middlemen, zero data harvesting, and zero paywalls. Features in-browser WebGPU & BYOK AI inference, Harvard ATS resume compiler, anti-ghost hiring radar, and an air-gapped IndexedDB vault.",
+    description: "A client-side job search platform with no backend: pulls live listings from public ATS endpoints and Hacker News, storing user data in an encrypted IndexedDB vault with WebGPU and local/cloud AI inference.",
     bullets: [
-      "Direct 1st-Party ATS Engine: Scans 500+ corporate ATS endpoints (Ashby, Greenhouse, Lever, SmartRecruiters) directly with client-side streaming and zero-cost automated GitHub Actions workers.",
-      "100% Client-Side Sovereign AI: Runs local quantized Qwen 2.5-Coder via in-browser WebGPU shaders, local Ollama, and 6 CORS BYOK cloud providers with zero server telemetry or prompt logging.",
-      "In-Browser ATS PDF Compiler & Split Studio: Pure JS PDF 1.4 vector compiler generating single-column Harvard ATS resumes with real-time keyword density, 12-dimension X-Ray diagnostics, and anti-hallucination fact checking.",
-      "Anti-Ghost Radar & Universal AutoFill: Computes authentic hiring velocity (4.2x callback multiplier for <4h listings), detects ghost jobs/repost loops, and provides a zero-permission 1-click ATS application autofill bookmarklet."
+      "Built a job platform with no backend: pulls live listings from public ATS endpoints (Greenhouse, Lever, Ashby, SmartRecruiters and others) and Hacker News 'Who is Hiring', storing user data in an encrypted IndexedDB vault.",
+      "Wrote a standard-library Python harvester on a GitHub Actions cron that enforces a 14-day freshness limit, filters evergreen/ghost postings and de-duplicates by SHA-256 fingerprint.",
+      "Built a 12-dimension ATS scoring engine with vendor-specific rules and a dependency-free in-browser PDF resume compiler with a guardrail that checks generated bullets against verified profile facts.",
+      "Implemented hardware-aware inference: local quantized Qwen 2.5-Coder via WebGPU, falling back to Ollama or six bring-your-own-key cloud providers; covered by 488 automated tests (Node test runner and Vitest) with lint and CSP checks."
     ],
-    tech: ["React 19", "Vite", "WebGPU", "IndexedDB", "Python", "Local AI / Ollama", "PDF 1.4 Compiler"],
+    tech: ["React", "Vite", "WebGPU", "IndexedDB", "Node.js", "Python", "Local AI / Ollama"],
     demoStatus: "https://sprav-jobai.vercel.app/"
   },
   {
