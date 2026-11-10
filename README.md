@@ -16,8 +16,8 @@
 
 - 📍 **Location:** Hyderabad, India
 - 🎓 **Focus:** AI/ML Systems, Production RAG Pipelines, Multi-Agent Architecture & High-Throughput Python Backends
-- 💼 **Experience:** AI/ML Engineer Intern @ MobcoderAI (Onsite)
-- 🤝 **Open For:** AI/ML Engineering Roles, Python Backend Opportunities, GenAI Internships, RAG Systems Work, and Applied ML Collaborations
+- 💼 **Experience:** Product Development Intern @ SocialCX | AI/ML Engineer Intern @ MobcoderAI (Onsite)
+- 🤝 **Open For:** Full-Time & Contract AI/ML Roles, Python Backend Engineering, and Applied GenAI Systems (Available Immediately)
 
 I break complex, messy data problems into specialized, deterministic components. Whether building multi-agent routers that dispatch financial queries to domain specialists or clinical RAG pipelines with jailbreak-proof guardrails, my focus is architectural reliability — systems that fail closed, score their own hallucinations, and run efficiently under real-world conditions.
 
@@ -27,16 +27,22 @@ I break complex, messy data problems into specialized, deterministic components.
 
 | Domain | Technologies & Frameworks |
 |---|---|
-| **AI / GenAI / Agents** | LangGraph, LangChain, Agentic RAG, Multi-Agent Systems (MoE routing), Model Context Protocol (MCP), Tool-Calling, LlamaIndex, Self-RAG, CRAG, LoRA Fine-tuning |
+| **AI / GenAI / Agents** | LangGraph, LangChain, Agentic RAG, Multi-Agent Systems (MoE routing), Model Context Protocol (MCP), Vision-Language Models (VLM), Whisper, Tool-Calling, LlamaIndex, Self-RAG, CRAG, LoRA Fine-tuning |
 | **Retrieval & Vector Search** | Qdrant Cloud, pgvector, Pinecone, MedCPT, Hybrid Search (BM25 + Dense), Cross-Encoder Re-ranking, Reciprocal Rank Fusion (RRF), Semantic Caching, Sentence-Transformers |
 | **LLMs & Infrastructure** | Groq, Ollama, vLLM, DeepSeek-R1/R2, Llama 3.3 70B, Qwen 2.5/3, OpenAI API, AWS Bedrock |
-| **ML & Deterministic Eval** | Scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, MLflow, RAGAS, RapidFuzz, NDCG@5, Hallucination & Drift Detection, pytest |
+| **ML & Deterministic Eval** | Scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, MLflow, RAGAS, RapidFuzz, NDCG@5, Hallucination & Drift Detection, AST Mutation Testing (DeployProof), pytest |
 | **Backend & Automation** | Python 3.11+, FastAPI, REST APIs, React 18, TypeScript, Playwright, PostgreSQL (Neon), MongoDB, SQLite, DuckDB, Redis (Caching & Session RBAC), SQLAlchemy, Pydantic, PyWebView |
 | **Cloud & Security** | AWS, Oracle OCI, GCP, Cloudflare Pages, Docker, Kubernetes, OAuth2, JWT, AES-GCM, HIPAA & GDPR compliance, Linux, Git |
 
 ---
 
 ## 🚀 Work Experience
+
+### **Product Development Intern** — *SocialCX* (Hybrid)  
+*Oct 2026 – Nov 2026*
+
+- **Multimodal Audio/Video Intelligence:** Built an end-to-end multimodal transcription and analysis pipeline utilizing Whisper for high-accuracy speech-to-text, OCR for visual text extraction, and Vision-Language Models (VLMs) to process client product video and image assets.
+- **Predictive Product Insights:** Developed intelligence workflows that synthesize visual and auditory signals to generate data-driven recommendations on product improvements and upgrade opportunities for enterprise clients.
 
 ### **AI/ML Engineer Intern** — *MobcoderAI* (Noida, UP — Onsite)  
 *Apr 2026 – Jul 2026*
@@ -49,7 +55,14 @@ I break complex, messy data problems into specialized, deterministic components.
 
 ## 🔬 Featured Projects
 
-### 1. 🤖 [SPrav Job AI](https://sprav-jobai.vercel.app/) — *100% Client-Side Sovereign Career OS*
+### 1. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System (PharmaSpine AI)*
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-pharma--spine--ai.vercel.app-6366f1?style=flat-square)](https://pharma-spine-ai.vercel.app/)
+A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer (NSCLC) designed for oncologists and pharmacists.
+- **Pipeline:** Governed RAG over 600+ FDA drug labels and 3,900+ pages of NCCN guidelines using HyDE query expansion, MedCPT embeddings, and Cross-Encoder reranking.
+- **Security:** Role-based access (Patient/HCP/Admin) with JWT RBAC, Redis session blacklisting, and regex prompt-injection guardrails.
+- **Tech:** `Python`, `FastAPI`, `React`, `Qdrant`, `MedCPT`, `PostgreSQL`, `Redis`, `Docker`
+
+### 2. 🤖 [SPrav Job AI](https://sprav-jobai.vercel.app/) — *100% Client-Side Sovereign Career OS*
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-sprav--jobai.vercel.app-6366f1?style=flat-square)](https://sprav-jobai.vercel.app/) [![Client-Side](https://img.shields.io/badge/🔒_Privacy-100%25_Air--Gapped_IndexedDB-blue?style=flat-square)](https://sprav-jobai.vercel.app/) [![WebGPU](https://img.shields.io/badge/⚡_Inference-WebGPU_%26_Local_AI-emerald?style=flat-square)](https://sprav-jobai.vercel.app/)
 - **1st-Party ATS Engine:** Direct client-side streaming across 500+ corporate ATS portals (Ashby, Greenhouse, Lever, SmartRecruiters) and 3.5M+ tech opportunities with $0 server cost.
 - **Client-Side AI Inference:** In-browser WebGPU execution (Qwen 2.5-Coder), local Ollama, and 6 CORS BYOK cloud providers with zero server prompts or data logging.
@@ -57,21 +70,21 @@ I break complex, messy data problems into specialized, deterministic components.
 - **Anti-Ghost Radar & AutoFill:** Real-time hiring velocity multipliers (4.2x callback probability for <4h drops), ghost-job filtering, and zero-permission 1-click ATS application autofill bookmarklet.
 - **Tech:** `React 19`, `Vite`, `WebGPU`, `IndexedDB`, `Python`, `Ollama`, `PDF 1.4 Compiler`
 
-### 2. 🏥 [RespiRAG](https://github.com/SVSPraveen/RespiRAG) — *Clinical AI RAG System (PharmaSpine AI)*
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-pharma--spine--ai.vercel.app-6366f1?style=flat-square)](https://pharma-spine-ai.vercel.app/)
-A production-grade, zero-hallucination RAG system for Non-Small Cell Lung Cancer (NSCLC) designed for oncologists and pharmacists.
-- **Pipeline:** Governed RAG over 600+ FDA drug labels and 3,900+ pages of NCCN guidelines using HyDE query expansion, MedCPT embeddings, and Cross-Encoder reranking.
-- **Security:** Role-based access (Patient/HCP/Admin) with JWT RBAC, Redis session blacklisting, and regex prompt-injection guardrails.
-- **Tech:** `Python`, `FastAPI`, `React`, `Qdrant`, `MedCPT`, `PostgreSQL`, `Redis`, `Docker`
+### 3. 🧪 [DeployProof](https://github.com/SVSPraveen/deployproof) — *In-Memory AST Mutation-Testing CLI*
+[![PyPI](https://img.shields.io/badge/PyPI-v1.1.19-blue?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/deployproof/) [![GitHub Stars](https://img.shields.io/badge/GitHub-25_Stars-yellow?style=flat-square&logo=github)](https://github.com/SVSPraveen/deployproof)
+- **Diff-Scoped Mutation:** Published Python CLI running mutation testing scoped directly to git diffs, exposing test suites with 100% line coverage that verify very little.
+- **In-Memory AST Compilation:** Compiles all mutants into a single conditional AST in memory with zero disk writes, with a self-healing synthesizer generating pytest cases to kill surviving mutants.
+- **Security & CI/CD Gates:** Integrated companion gates for OWASP SAST, git secrets, and vulnerable dependencies (PyPI + OSV) wired to pre-push hooks and GitHub Actions.
+- **Tech:** `Python`, `AST`, `pytest`, `GitHub Actions`, `OSV`, `PyPI`
 
-### 3. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer (Alphalens AI)*
+### 4. 📈 [Finance RAG Copilot](https://github.com/SVSPraveen/Finance-RAG-Copilot) — *Multi-Agent SEC Analyzer (Alphalens AI)*
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-alphalens--ai--one.vercel.app-6366f1?style=flat-square)](https://alphalens-ai-one.vercel.app/)
 An enterprise multi-agent RAG engine for SEC 10-K/10-Q filing analysis.
 - **Orchestration:** Multi-agent router (Financial Analyst, Comparison, Decomposition, Risk, Trend agents) executing parallel retrieval via Qdrant Cloud.
 - **Self-Eval & Guardrails:** Zero-cost deterministic evaluation layer scoring Faithfulness and Groundedness with a 5-state visual guardrail system.
 - **Tech:** `Python`, `Streamlit`, `Qdrant Cloud`, `BM25`, `Llama 3.3 70B`, `PostgreSQL`, `RapidFuzz`
 
-### 4. 🛡️ [Governed-RAGFlow](https://github.com/SVSPraveen/Governed-RAGFlow) — *Visual AI Orchestration & Governance Engine*
+### 5. 🛡️ [Governed-RAGFlow](https://github.com/SVSPraveen/Governed-RAGFlow) — *Visual AI Orchestration & Governance Engine*
 A production-ready orchestration platform combining a visual drag-and-drop workflow canvas with an asynchronous Python backend, featuring real-time guardrails and self-healing retries.
 - **Visual Canvas:** Drag-and-drop execution graph builder in React 18 with step-by-step live status streaming, topological execution sorting, and 10-second preset onboarding pipelines.
 - **Real-Time Governance:** Multi-layered fail-closed guardrails (PII masking, toxicity filtering, and prompt injection defenses) short-circuiting malicious inputs before model invocation.
@@ -79,7 +92,7 @@ A production-ready orchestration platform combining a visual drag-and-drop workf
 - **Audit & Persistence:** PostgreSQL (Neon) persistence for full governance audit logs, token telemetry, latency tracking, and deterministic faithfulness evaluation.
 - **Tech:** `Python`, `FastAPI`, `React 18`, `PostgreSQL`, `Neon`, `Groq LPU`, `LangChain`, `Docker`
 
-### 5. 🚢 [ShipForesight](https://github.com/SVSPraveen/ShipForesight) — *Logistics ML Predictive Engine*
+### 6. 🚢 [ShipForesight](https://github.com/SVSPraveen/ShipForesight) — *Logistics ML Predictive Engine*
 An AI-powered logistics platform predicting shipment delays before dispatch.
 - **Performance:** 3-stage zero-inflated pipeline (CatBoost + LightGBM + XGBoost) achieving **84.7% accuracy / 0.891 AUC-ROC** enriched via DuckDB.
 - **Multilingual Explanations:** Plain-language explanations in English, Hindi, Marathi, Gujarati, and Tamil via LangChain + Groq.

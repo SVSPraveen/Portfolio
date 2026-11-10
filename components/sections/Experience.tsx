@@ -3,6 +3,30 @@
 import { motion, Variants } from 'framer-motion';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
 
+const experiencesData = [
+  {
+    role: "Product Development Intern",
+    company: "SocialCX (Hybrid)",
+    period: "Oct 2026 – Nov 2026",
+    bullets: [
+      "Engineered an end-to-end multimodal transcription and analysis pipeline utilizing Whisper for high-fidelity speech-to-text, OCR for text extraction, and Vision-Language Models (VLMs) to process client product video and image assets.",
+      "Built predictive intelligence workflows that synthesize visual and auditory signals to generate data-driven recommendations on product improvements and upgrade opportunities for enterprise clients.",
+    ],
+    tech: ['Whisper', 'Vision-Language Models (VLM)', 'OCR', 'Multimodal AI', 'Python', 'FastAPI'],
+  },
+  {
+    role: "AI/ML Engineer Intern",
+    company: "MobcoderAI, Noida, UP (Onsite)",
+    period: "Apr 2026 – Jul 2026",
+    bullets: [
+      "Improved SEC-filing retrieval accuracy from 62% to ~95% (NDCG@5) by building a hybrid BM25 + dense-vector search pipeline with Cross-Encoder re-ranking on Qdrant Cloud.",
+      "Reduced query response time to under 5 seconds across 100+ SEC 10-K/10-Q filings by designing a multi-agent orchestration system in LangGraph with parallel routing on Llama 3.3 70B, using MCP for standardized tool-calling between agents.",
+      "Lowered LLM evaluation costs significantly while maintaining high faithfulness scores by building a deterministic RapidFuzz + PyTorch scoring pipeline tracked in MLflow.",
+    ],
+    tech: ['LangGraph', 'Qdrant Cloud', 'Llama 3.3', 'MLflow', 'PyTorch', 'RapidFuzz', 'MCP'],
+  },
+];
+
 export default function Experience() {
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -32,57 +56,50 @@ export default function Experience() {
 
         {/* Timeline */}
         <div className="relative mt-12 w-full max-w-4xl flex flex-col gap-8">
-          
-          {/* Single Timeline Entry */}
-          <div className="flex gap-4 md:gap-8">
-            
-            {/* Timeline Icon */}
-            <div className="flex flex-col items-center mt-1">
-              <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 z-10">
-                <Sparkles className="w-5 h-5" />
+          {experiencesData.map((exp, idx) => (
+            <div key={exp.company} className="flex gap-4 md:gap-8">
+              {/* Timeline Icon */}
+              <div className="flex flex-col items-center mt-1">
+                <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0 z-10">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                {/* Vertical line connecting entries */}
+                {idx < experiencesData.length - 1 && (
+                  <div className="w-px h-full bg-cardBorder mt-2 hidden md:block" />
+                )}
               </div>
-              {/* Vertical line for future entries */}
-              <div className="w-px h-full bg-cardBorder mt-2 hidden md:block"></div>
+
+              {/* Content Card */}
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex-1 bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 p-6 md:p-8 flex flex-col"
+              >
+                <span className="text-sm text-textSecondary mb-2">{exp.period}</span>
+                <h3 className="text-xl font-bold text-textPrimary">{exp.role}</h3>
+                <span className="text-accent font-medium text-sm mb-4">{exp.company}</span>
+                
+                <ul className="flex flex-col gap-3 mb-6">
+                  {exp.bullets.map((bullet, i) => (
+                    <li key={i} className="flex gap-3 items-start text-textSecondary leading-relaxed text-base">
+                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.tech.map(tech => (
+                    <span key={tech} className="rounded-full border border-cardBorder px-3 py-1.5 text-sm text-textSecondary bg-bgAlt">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-
-            {/* Content Card */}
-            <motion.div
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="flex-1 bg-white/80 backdrop-blur-md rounded-2xl border border-cardBorder/80 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300 p-6 md:p-8 flex flex-col"
-            >
-              <span className="text-sm text-textSecondary mb-2">Apr 2026 – Jul 2026</span>
-              <h3 className="text-xl font-bold text-textPrimary">AI/ML Engineer Intern</h3>
-              <span className="text-accent font-medium text-sm mb-4">MobcoderAI, Noida, UP (Onsite)</span>
-              
-              <ul className="flex flex-col gap-3 mb-6">
-                <li className="flex gap-3 items-start text-textSecondary leading-relaxed text-base">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Improved SEC-filing retrieval accuracy from 62% to ~95% (NDCG@5) by building a hybrid BM25 + dense-vector search pipeline with Cross-Encoder re-ranking on Qdrant Cloud.</span>
-                </li>
-                <li className="flex gap-3 items-start text-textSecondary leading-relaxed text-base">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Reduced query response time to under 5 seconds across 100+ SEC 10-K/10-Q filings by designing a multi-agent orchestration system in LangGraph with parallel routing on Llama 3.3 70B, using MCP for standardized tool-calling between agents.</span>
-                </li>
-                <li className="flex gap-3 items-start text-textSecondary leading-relaxed text-base">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Lowered LLM evaluation costs significantly while maintaining high faithfulness scores by building a deterministic RapidFuzz + PyTorch scoring pipeline tracked in MLflow.</span>
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-2">
-                {['LangGraph', 'Qdrant Cloud', 'Llama 3.3', 'MLflow', 'PyTorch', 'RapidFuzz', 'MCP'].map(tech => (
-                  <span key={tech} className="rounded-full border border-cardBorder px-3 py-1.5 text-sm text-textSecondary bg-bgAlt">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-          </div>
-
+          ))}
         </div>
 
       </div>

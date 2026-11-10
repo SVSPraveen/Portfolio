@@ -7,21 +7,6 @@ import { FaGithub } from 'react-icons/fa';
 
 const projectsData = [
   {
-    id: "sprav-job-ai",
-    category: "SOVEREIGN CAREER OS",
-    tags: ["Client-Side AI", "WebGPU", "Full Stack"],
-    title: "SPrav Job AI",
-    description: "An anti-SaaS, 100% client-side career operating system. Scans 500+ direct corporate ATS feeds (Ashby, Greenhouse, Lever, SmartRecruiters) and tech opportunities with zero middlemen, zero data harvesting, and zero paywalls. Features in-browser WebGPU & BYOK AI inference, Harvard ATS resume compiler, anti-ghost hiring radar, and an air-gapped IndexedDB vault.",
-    bullets: [
-      "Direct 1st-Party ATS Engine: Scans 500+ corporate ATS endpoints (Ashby, Greenhouse, Lever, SmartRecruiters) directly with client-side streaming and zero-cost automated GitHub Actions workers.",
-      "100% Client-Side Sovereign AI: Runs local quantized Qwen 2.5-Coder via in-browser WebGPU shaders, local Ollama, and 6 CORS BYOK cloud providers with zero server telemetry or prompt logging.",
-      "In-Browser ATS PDF Compiler & Split Studio: Pure JS PDF 1.4 vector compiler generating single-column Harvard ATS resumes with real-time keyword density, 12-dimension X-Ray diagnostics, and anti-hallucination fact checking.",
-      "Anti-Ghost Radar & Universal AutoFill: Computes authentic hiring velocity (4.2x callback multiplier for <4h listings), detects ghost jobs/repost loops, and provides a zero-permission 1-click ATS application autofill bookmarklet."
-    ],
-    tech: ["React 19", "Vite", "WebGPU", "IndexedDB", "Python", "Local AI / Ollama", "PDF 1.4 Compiler"],
-    demoStatus: "https://sprav-jobai.vercel.app/"
-  },
-  {
     id: "respirag",
     category: "CLINICAL AI",
     tags: ["RAG", "AI", "Backend"],
@@ -36,6 +21,36 @@ const projectsData = [
     tech: ["Python", "FastAPI", "React 18", "Qdrant", "MedCPT", "PostgreSQL", "Redis", "Docker"],
     github: "https://github.com/SVSPraveen/RespiRAG",
     demoStatus: "https://pharma-spine-ai.vercel.app/"
+  },
+  {
+    id: "sprav-job-ai",
+    category: "SOVEREIGN CAREER OS",
+    tags: ["Client-Side AI", "WebGPU", "Full Stack", "AI", "Backend"],
+    title: "SPrav Job AI",
+    description: "An anti-SaaS, 100% client-side career operating system. Scans 500+ direct corporate ATS feeds (Ashby, Greenhouse, Lever, SmartRecruiters) and tech opportunities with zero middlemen, zero data harvesting, and zero paywalls. Features in-browser WebGPU & BYOK AI inference, Harvard ATS resume compiler, anti-ghost hiring radar, and an air-gapped IndexedDB vault.",
+    bullets: [
+      "Direct 1st-Party ATS Engine: Scans 500+ corporate ATS endpoints (Ashby, Greenhouse, Lever, SmartRecruiters) directly with client-side streaming and zero-cost automated GitHub Actions workers.",
+      "100% Client-Side Sovereign AI: Runs local quantized Qwen 2.5-Coder via in-browser WebGPU shaders, local Ollama, and 6 CORS BYOK cloud providers with zero server telemetry or prompt logging.",
+      "In-Browser ATS PDF Compiler & Split Studio: Pure JS PDF 1.4 vector compiler generating single-column Harvard ATS resumes with real-time keyword density, 12-dimension X-Ray diagnostics, and anti-hallucination fact checking.",
+      "Anti-Ghost Radar & Universal AutoFill: Computes authentic hiring velocity (4.2x callback multiplier for <4h listings), detects ghost jobs/repost loops, and provides a zero-permission 1-click ATS application autofill bookmarklet."
+    ],
+    tech: ["React 19", "Vite", "WebGPU", "IndexedDB", "Python", "Local AI / Ollama", "PDF 1.4 Compiler"],
+    demoStatus: "https://sprav-jobai.vercel.app/"
+  },
+  {
+    id: "deployproof",
+    category: "DEVELOPER TOOLING & CI/CD",
+    tags: ["Backend", "AI"],
+    title: "DeployProof",
+    description: "An in-memory AST mutation-testing CLI published on PyPI. Scopes mutation testing directly to git diffs to detect test suites with 100% line coverage that verify very little, featuring self-healing pytest synthesis and companion security gates.",
+    bullets: [
+      "Published a Python CLI (pip install deployproof, v1.1.19, 278 passing tests, 25 GitHub stars) that runs mutation testing scoped to git diffs, exposing unverified tests in memory with zero disk rewrites.",
+      "Built a self-healing synthesizer that generates pytest cases to kill surviving mutants, with parallel full-repo sweeps and WSL delegation.",
+      "Integrated companion gates for OWASP-style SAST, git-history secrets, hallucinated or vulnerable dependencies (PyPI + OSV) and symlink escapes, wired into a pre-push hook and GitHub Actions."
+    ],
+    tech: ["Python", "AST", "pytest", "GitHub Actions", "OSV", "PyPI", "CLI"],
+    github: "https://github.com/SVSPraveen/deployproof",
+    demoStatus: "https://pypi.org/project/deployproof"
   },
   {
     id: "finance-rag-copilot",
@@ -193,7 +208,7 @@ export default function Projects() {
                   {project.demoStatus !== "pending" && project.id !== "sprav-job-ai" && (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20 shadow-sm">
                       <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                      Live Deployment
+                      {project.id === "deployproof" ? "PyPI Package (25★)" : "Live Deployment"}
                     </span>
                   )}
                 </div>
@@ -257,7 +272,7 @@ export default function Projects() {
                       className="flex items-center gap-2 px-4 py-2.5 rounded-xl gradient-accent text-white hover:opacity-90 hover:shadow-md hover:shadow-accent/20 transition-all font-medium text-sm shadow-sm"
                     >
                       <Rocket className="w-4 h-4" />
-                      Live Demo
+                      {project.demoStatus.includes("pypi.org") ? "PyPI Package" : "Live Demo"}
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
                   )}

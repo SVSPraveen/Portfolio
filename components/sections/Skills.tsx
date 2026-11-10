@@ -8,7 +8,7 @@ const skillsData = [
     id: "agentic-orchestration",
     icon: Brain,
     title: 'Agentic AI & Orchestration',
-    skills: ['LangGraph', 'LangChain', 'Agentic RAG', 'Multi-Agent Systems (MoE)', 'Model Context Protocol (MCP)', 'Tool-Calling', 'LlamaIndex', 'Self-RAG', 'CRAG', 'LoRA Fine-tuning'],
+    skills: ['LangGraph', 'LangChain', 'Agentic RAG', 'Multi-Agent Systems (MoE)', 'Model Context Protocol (MCP)', 'Vision-Language Models (VLM)', 'Whisper', 'Tool-Calling', 'LlamaIndex', 'Self-RAG', 'CRAG', 'LoRA Fine-tuning'],
   },
   {
     id: "retrieval-search",
@@ -26,7 +26,7 @@ const skillsData = [
     id: "ml-evaluation",
     icon: LineChart,
     title: 'ML & Evaluation',
-    skills: ['Scikit-learn', 'LightGBM', 'XGBoost', 'TensorFlow/Keras', 'MLflow', 'RAGAS', 'RapidFuzz', 'NDCG', 'Hallucination Detection', 'Drift Detection', 'Citation Accuracy', 'pytest'],
+    skills: ['Scikit-learn', 'LightGBM', 'XGBoost', 'TensorFlow/Keras', 'MLflow', 'RAGAS', 'RapidFuzz', 'NDCG', 'Hallucination Detection', 'AST Mutation Testing (DeployProof)', 'Drift Detection', 'Citation Accuracy', 'pytest'],
   },
   {
     id: "fullstack-backend",

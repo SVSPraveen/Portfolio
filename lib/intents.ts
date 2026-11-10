@@ -47,7 +47,7 @@ export const intents: Intent[] = [
     label: "Work Experience",
     sectionId: "experience",
     keywords: [
-      "experience", "internship", "work history", "job", "mobcoder", "career", 
+      "experience", "internship", "work history", "job", "socialcx", "mobcoder", "career", 
       "work", "company", "roles", "previous work", "ai engineer", "software engineer", 
       "employment", "positions"
     ],
@@ -59,8 +59,8 @@ export const intents: Intent[] = [
     keywords: [
       "projects", "show me your projects", "rag projects", "what have you built", 
       "github", "portfolio work", "built", "repos", "code", "demos", "apps", 
-      "applications", "sprav job ai", "governed ragflow", "ragflow", "job ai",
-      "financial agent", "clinical rag", "systems", "work samples"
+      "applications", "respirag", "deployproof", "sprav job ai", "governed ragflow", "ragflow", "job ai",
+      "financial agent", "clinical rag", "mutation testing", "systems", "work samples"
     ],
   },
   {

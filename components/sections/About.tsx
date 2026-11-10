@@ -101,7 +101,7 @@ export default function About() {
               <div className="flex flex-col">
                 <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider mb-0.5">Status</span>
                 <span className="text-xs md:text-sm font-bold text-textPrimary leading-snug">
-                  Open to Opportunities / Actively Looking
+                  Available Immediately — Open to Roles
                 </span>
               </div>
             </div>
